@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil - Kabar RT</title>
+
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* BODY */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7f7;
+            color: #333;
+        }
+
+        /* HEADER */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+
+            padding: 20px 5%;
+            background-color: white;
+        }
+
+        #logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #005f5f;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #005f5f;
+        }
+
+        /* HERO */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+
+            gap: 40px;
+
+            padding: 60px 5%;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-text span {
+            color: #005f5f;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .hero-text h1 {
+            font-size: 60px;
+            line-height: 1.1;
+            color: #005f5f;
+
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            line-height: 1.8;
+            color: #666;
+            max-width: 600px;
+        }
+
+        /* HERO IMAGE */
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            display: block;
+        }
+
+        .badge {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+
+            background-color: #005f5f;
+            color: white;
+
+            padding: 15px 20px;
+            border-radius: 15px;
+        }
+
+        /* VISI MISI */
+        .visi-misi {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+
+            padding: 0 5% 60px;
+        }
+
+        .card {
+            flex: 1;
+            min-width: 300px;
+
+            background-color: white;
+            padding: 30px;
+
+            border-radius: 20px;
+
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h3 {
+            color: #005f5f;
+            margin-bottom: 20px;
+        }
+
+        .card p,
+        .card li {
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .card ul {
+            padding-left: 20px;
+        }
+
+        /* PENGURUS */
+        .pengurus-section {
+            padding: 0 5% 60px;
+            text-align: center;
+        }
+
+        .pengurus-section h2 {
+            color: #005f5f;
+            margin-bottom: 10px;
+        }
+
+        .pengurus-section p {
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .pengurus-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .pengurus-card {
+            background-color: white;
+
+            width: 220px;
+
+            padding: 25px;
+
+            border-radius: 20px;
+
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .pengurus-card img {
+            width: 80px;
+            height: 80px;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            margin-bottom: 15px;
+        }
+
+        .pengurus-card h4 {
+            margin-bottom: 5px;
+        }
+
+        .pengurus-card small {
+            color: #666;
+        }
+
+        /* INFO TAMBAHAN */
+        .info-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+
+            padding: 0 5% 60px;
+        }
+
+        .info-box {
+            flex: 1;
+            min-width: 300px;
+
+            background-color: white;
+
+            padding: 25px;
+
+            border-radius: 20px;
+
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .info-box h3 {
+            color: #005f5f;
+            margin-bottom: 15px;
+        }
+
+        .info-box p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: white;
+
+            padding: 20px 5%;
+
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <div id="logo">Kabar RT</div>
+
+        <nav>
+            <a href="#">Beranda</a>
+            <a href="#">Layanan Warga</a>
+            <a href="#">Profil</a>
+            <a href="#">Informasi</a>
+            <a href="#">Kontak</a>
+        </nav>
+
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <!-- HERO TEXT -->
+        <div class="hero-text">
+
+            <span>TENTANG KAMI</span>
+
+            <h1>
+                Mengenal Lebih <br>
+                Dekat Lingkungan Kita
+            </h1>
+
+            <p>
+                RT kami hadir sebagai pusat komunikasi warga yang menjunjung
+                tinggi kebersamaan, keamanan, dan gotong royong lingkungan.
+            </p>
+
+        </div>
+
+        <!-- HERO IMAGE -->
+        <div class="hero-image">
+
+            <img src="sekre.jpeg"
+                alt="Perumahan">
+
+            <div class="badge">
+                <strong>Sekretariat</strong><br>
+                RT 03 / RW 06
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- VISI MISI -->
+    <section class="visi-misi">
+
+        <!-- VISI -->
+        <div class="card">
+
+            <h3>Visi Kami</h3>
+
+            <p>
+                "Mewujudkan lingkungan RT yang mandiri, harmonis,
+                dan digital-ready berbasis kekeluargaan."
+            </p>
+
+        </div>
+
+        <!-- MISI -->
+        <div class="card">
+
+            <h3>Misi Kami</h3>
+
+            <ul>
+                <li>Meningkatkan komunikasi antarwarga.</li>
+                <li>Mempererat silaturahmi lingkungan.</li>
+                <li>Menjaga keamanan dan ketertiban bersama.</li>
+                <li>Mendorong digitalisasi pelayanan warga.</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+    <!-- STRUKTUR PENGURUS -->
+    <section class="pengurus-section">
+
+        <h2>Struktur Kepengurusan</h2>
+
+        <p>
+            Pengurus RT yang aktif menjaga kenyamanan lingkungan.
+        </p>
+
+        <div class="pengurus-container">
+
+            <!-- CARD -->
+            <div class="pengurus-card">
+
+                <img src="profil.jpg" alt="Ketua RT">
+
+                <h4>Bapak Bagus</h4>
+
+                <small>Ketua RT</small>
+
+            </div>
+
+            <!-- CARD -->
+            <div class="pengurus-card">
+
+                <img src="profil.jpg" alt="Wakil RT">
+
+                <h4>Bapak Yusuf</h4>
+
+                <small>Wakil Ketua RT</small>
+
+            </div>
+
+            <!-- CARD -->
+            <div class="pengurus-card">
+
+                <img src="profil.jpg"Sekretaris">
+
+                <h4>Bapak Eko</h4>
+
+                <small>Sekretaris</small>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- INFO TAMBAHAN -->
+    <section class="info-container">
+
+        <div class="info-box">
+
+            <h3>Keamanan Terintegrasi</h3>
+
+            <p>
+                Sistem keamanan lingkungan aktif selama 24 jam
+                dengan ronda dan CCTV kawasan.
+            </p>
+
+        </div>
+
+        <div class="info-box">
+
+            <h3>Administrasi Lingkungan</h3>
+
+            <p>
+                Pengajuan surat dan kebutuhan administrasi
+                warga dilakukan lebih cepat dan efisien.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <strong>Kabar RT</strong>
+
+        <p>© 2026 Kabar RT. All rights reserved.</p>
+
+    </footer>
+
+</body>
+
+</html>
