@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kabar RT - Informasi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- RESET & GLOBAL STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 100%;
+            padding: 0 5%;
+            margin: 0 auto;
+        }
+
+        /* --- NAVBAR --- */
+        header {
+            background-color: #ffffff;
+            padding: 24px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #004d40;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            font-weight: 500;
+            color: #64748b;
+        }
+
+        .nav-links a.active, .nav-links a:hover {
+            color: #004d40;
+            font-weight: 700;
+            border-bottom: 2px solid #004d40;
+            padding-bottom: 4px;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 80px 0 60px 0;
+            background-color: #ffffff;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            color: #00796b;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: #004d40;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #64748b;
+            max-width: 580px;
+        }
+
+        /* --- CONTENT WRAPPER (AGENDA + SIDEBAR) --- */
+        .content-section {
+            padding: 40px 0;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        /* --- AGENDA SECTION --- */
+        .agenda-container {
+            background-color: #edf2f1;
+            border-radius: 20px;
+            padding: 40px;
+        }
+
+        .agenda-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .agenda-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #004d40;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .agenda-nav {
+            display: flex;
+            gap: 8px;
+        }
+
+        .nav-btn {
+            background-color: #ffffff;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #64748b;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .agenda-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .card-agenda {
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 28px;
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+
+        .agenda-date {
+            background-color: #e0f2f1;
+            text-align: center;
+            padding: 16px;
+            border-radius: 12px;
+            min-width: 72px;
+        }
+
+        .agenda-date .month {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            color: #00796b;
+            text-transform: uppercase;
+        }
+
+        .agenda-date .day {
+            display: block;
+            font-size: 28px;
+            font-weight: 800;
+            color: #004d40;
+            line-height: 1.1;
+            margin-top: 2px;
+        }
+
+        .agenda-info {
+            flex-grow: 1;
+        }
+
+        .meta-tags {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .badge-type {
+            font-size: 10px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            color: #ffffff;
+        }
+
+        .badge-perayaan { background-color: #1e40af; }
+        .badge-kesehatan { background-color: #0f766e; }
+        .badge-sosial { background-color: #64748b; }
+
+        .time-info {
+            font-size: 13px;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .agenda-info h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 10px;
+        }
+
+        .agenda-info p {
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .location-meta {
+            display: flex;
+            gap: 24px;
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* --- SIDEBAR SECTION --- */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* Card Bantuan */
+        .card-sidebar-dark {
+            background-color: #004d40;
+            color: #ffffff;
+            border-radius: 16px;
+            padding: 32px;
+        }
+
+        .card-sidebar-dark h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .card-sidebar-dark p {
+            color: #a3cbd2;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .btn-sidebar-white {
+            display: block;
+            background-color: #ffffff;
+            color: #004d40;
+            text-align: center;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Card Pengumuman */
+        .card-sidebar-white {
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .announcement-tag {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #dc2626;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+        }
+
+        .announcement-tag::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            background-color: #dc2626;
+            border-radius: 50%;
+        }
+
+        .card-sidebar-white h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+
+        .card-sidebar-white p {
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Card Statistik */
+        .card-sidebar-blue {
+            background-color: #0f4c92;
+            color: #ffffff;
+            border-radius: 16px;
+            padding: 40px 32px;
+        }
+
+        .card-sidebar-blue h2 {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .card-sidebar-blue p {
+            color: #93c5fd;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .blue-line {
+            width: 40px;
+            height: 4px;
+            background-color: #3b82f6;
+            border-radius: 2px;
+        }
+
+        /* --- GALERI SECTION --- */
+        .galeri-section {
+            padding: 80px 0;
+        }
+
+        .galeri-header {
+            margin-bottom: 48px;
+        }
+
+        .galeri-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+
+        .galeri-header p {
+            color: #64748b;
+            font-size: 16px;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        /* Bento / Masonry Grid Layout */
+        .galeri-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.6fr 1fr;
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .galeri-col {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .galeri-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            display: block;
+        }
+
+        /* Spesifikasi Aspect Ratio sesuai Visual Gambar */
+        .img-tall-1 { aspect-ratio: 4/5; }
+        .img-wide-1 { aspect-ratio: 16/9; }
+        .img-square-1 { aspect-ratio: 1/1; }
+        .img-tall-2 { aspect-ratio: 3/4; }
+        .img-square-2 { aspect-ratio: 1/1; }
+        .img-wide-2 { aspect-ratio: 16/9; }
+
+        .galeri-footer {
+            text-align: center;
+        }
+
+        .btn-galeri {
+            background-color: #e2e8f0;
+            color: #0f172a;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-galeri:hover {
+            background-color: #cbd5e1;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #ffffff;
+            padding: 40px 0;
+            border-top: 1px solid #e2e8f0;
+            color: #64748b;
+            font-size: 15px;
+        }
+
+        .footer-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-weight: 800;
+            color: #004d40;
+            font-size: 20px;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1100px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            .galeri-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+            .card-agenda {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .galeri-grid {
+                grid-template-columns: 1fr;
+            }
+            .location-meta {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container navbar">
+            <div class="logo">Kabar RT</div>
+            <ul class="nav-links">
+                <li><a href="beranda.html">Beranda</a></li>
+                <li><a href="layanan-warga.html">Layanan Warga</a></li>
+                <li><a href="#">Profil</a></li>
+                <li><a href="#" class="active">Informasi</a></li>
+                <li><a href="#">Kontak</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-tag">Portal Komunitas</span>
+                <h1>Agenda & <span>Galeri Kampung</span></h1>
+                <p>Temukan jadwal kegiatan sosial, rapat warga, dan dokumentasi momen kebersamaan di lingkungan RT kita.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container main-grid">
+            
+            <div class="agenda-container">
+                <div class="agenda-header">
+                    <div class="agenda-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        Agenda Kegiatan
+                    </div>
+                    <div class="agenda-nav">
+                        <button class="nav-btn">❮</button>
+                        <button class="nav-btn">❯</button>
+                    </div>
+                </div>
+
+                <div class="agenda-list">
+                    <div class="card-agenda">
+                        <div class="agenda-date">
+                            <span class="month">Aug</span>
+                            <span class="day">17</span>
+                        </div>
+                        <div class="agenda-info">
+                            <div class="meta-tags">
+                                <span class="badge-type badge-perayaan">Perayaan</span>
+                                <span class="time-info">🕒 07:30 - Selesai</span>
+                            </div>
+                            <h3>Upacara & Lomba Kemerdekaan RI ke-79</h3>
+                            <p>Kemeriahan puncak kemerdekaan dengan berbagai lomba tradisional untuk anak-anak dan dewasa di lapangan utama.</p>
+                            <div class="location-meta">
+                                <div class="meta-item">📍 Lapangan Serbaguna</div>
+                                <div class="meta-item">👥 Seluruh Warga</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-agenda">
+                        <div class="agenda-date">
+                            <span class="month">Aug</span>
+                            <span class="day">24</span>
+                        </div>
+                        <div class="agenda-info">
+                            <div class="meta-tags">
+                                <span class="badge-type badge-kesehatan">Kesehatan</span>
+                                <span class="time-info">🕒 08:00 - 12:00</span>
+                            </div>
+                            <h3>Posyandu & Cek Kesehatan Rutin</h3>
+                            <p>Pemeriksaan rutin untuk balita dan lansia, termasuk pembagian vitamin dan konsultasi gizi ringan.</p>
+                            <div class="location-meta">
+                                <div class="meta-item">📍 Balai Warga</div>
+                                <div class="meta-item">👥 Ibu, Anak & Lansia</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-agenda">
+                        <div class="agenda-date">
+                            <span class="month">Aug</span>
+                            <span class="day">31</span>
+                        </div>
+                        <div class="agenda-info">
+                            <div class="meta-tags">
+                                <span class="badge-type badge-sosial">Sosial</span>
+                                <span class="time-info">🕒 19:30 - 21:00</span>
+                            </div>
+                            <h3>Rapat Bulanan & Arisan Warga</h3>
+                            <p>Koordinasi kebersihan lingkungan dan pembahasan rencana renovasi gapura masuk RT.</p>
+                            <div class="location-meta">
+                                <div class="meta-item">📍 Rumah Ketua RT</div>
+                                <div class="meta-item">👥 Perwakilan KK</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="card-sidebar-dark">
+                    <h3>Butuh Bantuan?</h3>
+                    <p>Laporkan kendala lingkungan atau ajukan surat pengantar langsung melalui WhatsApp Official kami.</p>
+                    <a href="#" class="btn-sidebar-white">HUBUNGI ADMIN</a>
+                </div>
+
+                <div class="card-sidebar-white">
+                    <div class="announcement-tag">Pengumumkan Penting</div>
+                    <h3>Penutupan Jalan Sementara</h3>
+                    <p>Jalan Kenanga akan ditutup pada hari Minggu (18/08) karena adanya panggung hiburan warga.</p>
+                </div>
+
+                <div class="card-sidebar-blue">
+                    <h2>120+</h2>
+                    <p>Keluarga Terdaftar</p>
+                    <div class="blue-line"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="galeri-section">
+        <div class="container">
+            <div class="galeri-header">
+                <h2>Galeri Momen Kampung</h2>
+                <p>Kumpulan foto dokumentasi kegiatan gotong royong, perayaan hari besar, dan keceriaan warga di lingkungan kita.</p>
+            </div>
+
+            <div class="galeri-grid">
+                <div class="galeri-col">
+                    <div class="galeri-item img-tall-1">
+                        <img src="https://via.placeholder.com/400x500" alt="Gotong Royong Bersama">
+                    </div>
+                    <div class="galeri-item img-square-1">
+                        <img src="https://via.placeholder.com/400x400" alt="Bunga Taman Kampung">
+                    </div>
+                </div>
+
+                <div class="galeri-col">
+                    <div class="galeri-item img-wide-1">
+                        <img src="https://via.placeholder.com/600x337" alt="Acara Malam Akrab">
+                    </div>
+                    <div class="galeri-item img-square-2">
+                        <img src="https://via.placeholder.com/600x600" alt="Ibu-ibu Berbincang Ramah">
+                    </div>
+                </div>
+
+                <div class="galeri-col">
+                    <div class="galeri-item img-tall-2">
+                        <img src="https://via.placeholder.com/400x533" alt="Anak-anak Bermain Ceria">
+                    </div>
+                    <div class="galeri-item img-wide-2">
+                        <img src="https://via.placeholder.com/400x225" alt="Suasana Malam Berlampu Hias">
+                    </div>
+                </div>
+            </div>
+
+            <div class="galeri-footer">
+                <a href="#" class="btn-galeri">Lihat Galeri Lengkap ➔</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-wrapper">
+            <div class="footer-logo">Kabar RT</div>
+            <div>&copy; 2026 Kabar RT. All rights reserved.</div>
+        </div>
+    </footer>
+
+</body>
+</html>

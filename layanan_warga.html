@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kabar RT - Layanan Warga</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- RESET & GLOBAL STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 100%;
+            padding: 0 5%;
+            margin: 0 auto;
+        }
+
+        /* --- NAVBAR --- */
+        header {
+            background-color: #ffffff;
+            padding: 24px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #004d40;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            font-weight: 500;
+            color: #64748b;
+        }
+
+        .nav-links a.active, .nav-links a:hover {
+            color: #004d40;
+            font-weight: 700;
+            border-bottom: 2px solid #004d40;
+            padding-bottom: 4px;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 80px 0 60px 0;
+            background-color: #ffffff;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            color: #00796b;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            color: #004d40;
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: #1e40af; /* Warna biru pada kata "Digital" */
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #64748b;
+            max-width: 550px;
+        }
+
+        /* --- SECTION MAIN STYLE --- */
+        .main-section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            margin-bottom: 32px;
+        }
+
+        .section-title h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #004d40;
+            margin-bottom: 6px;
+        }
+
+        .section-title p {
+            font-size: 15px;
+            color: #64748b;
+        }
+
+        /* --- ADMINISTRASI GRID --- */
+        .admin-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .card-admin {
+            background-color: #edf2f1;
+            border-radius: 16px;
+            padding: 32px;
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+
+        .icon-box {
+            background-color: #cbdad8;
+            color: #004d40;
+            padding: 14px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .card-admin-content h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+
+        .card-admin-content p {
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            max-width: 420px;
+        }
+
+        .card-action-link {
+            font-size: 14px;
+            font-weight: 700;
+            color: #004d40;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* --- FORMULIR DIGITAL --- */
+        .formulir-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 32px;
+        }
+
+        .filter-badges {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .badge {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+
+        .badge-blue {
+            background-color: #1e40af;
+            color: #ffffff;
+        }
+
+        .badge-gray {
+            background-color: #e2e8f0;
+            color: #64748b;
+        }
+
+        .formulir-grid {
+            display: grid;
+            grid-template-columns: 1.22fr 0.89fr 0.89fr;
+            gap: 24px;
+        }
+
+        /* Card Utama Pendataan */
+        .card-formulir-main {
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 400px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+        }
+
+        .icon-box-cyan {
+            background-color: #e0f2f1;
+            color: #00796b;
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .card-formulir-main h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #004d40;
+            line-height: 1.3;
+            margin-bottom: 16px;
+        }
+
+        .card-formulir-main p {
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.6;
+            max-width: 400px;
+        }
+
+        .card-main-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .avatar-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid #ffffff;
+            object-fit: cover;
+            margin-right: -8px;
+        }
+
+        .avatar-count {
+            background-color: #004d40;
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 600;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 0;
+        }
+
+        .btn-cyan {
+            background-color: #004d40;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Card File Kecil */
+        .card-formulir-sub {
+            background-color: #e2e8f0;
+            border-radius: 16px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 400px;
+        }
+
+        .icon-sub {
+            color: #1e40af;
+        }
+
+        .card-sub-info h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 4px;
+        }
+
+        .card-sub-info p {
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        /* --- CTA SECTION (BUTUH LAYANAN LAINNYA) --- */
+        .cta-box {
+            background-color: #004d40;
+            color: #ffffff;
+            border-radius: 24px;
+            padding: 64px 32px;
+            text-align: center;
+            margin: 40px 0 80px 0;
+        }
+
+        .cta-box h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .cta-box p {
+            color: #a3cbd2;
+            font-size: 15px;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .btn-cta-white {
+            background-color: #ffffff;
+            color: #004d40;
+            padding: 14px 28px;
+            border-radius: 24px;
+            font-weight: 600;
+            font-size: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .btn-cta-outline {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+            padding: 14px 28px;
+            border-radius: 24px;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #ffffff;
+            padding: 40px 0;
+            border-top: 1px solid #e2e8f0;
+            color: #64748b;
+            font-size: 15px;
+        }
+
+        .footer-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-weight: 800;
+            color: #004d40;
+            font-size: 20px;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1024px) {
+            .formulir-grid {
+                grid-template-columns: 1fr;
+            }
+            .card-formulir-main, .card-formulir-sub {
+                min-height: auto;
+            }
+            .card-sub-info {
+                margin-top: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .admin-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 40px;
+            }
+            .formulir-header {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container navbar">
+            <div class="logo">Kabar RT</div>
+            <ul class="nav-links">
+                <li><a href="beranda.html">Beranda</a></li>
+                <li><a href="#" class="active">Layanan Warga</a></li>
+                <li><a href="#">Profil</a></li>
+                <li><a href="#">Informasi</a></li>
+                <li><a href="#">Kontak</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-tag">Pelayanan Terpadu</span>
+                <h1>Layanan Warga <span>Digital.</span></h1>
+                <p>Kelola administrasi kependudukan dan akses dokumen penting langsung dari perangkat Anda. Cepat, transparan, dan tanpa antrean.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="main-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Administrasi</h2>
+                <p>Panduan dan bantuan pengurusan berkas kependudukan.</p>
+            </div>
+
+            <div class="admin-grid">
+                <div class="card-admin">
+                    <div class="icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                    </div>
+                    <div class="card-admin-content">
+                        <h3>Surat Pengantar RT/RW</h3>
+                        <p>Pembuatan surat pengantar untuk keperluan menikah, domisili, atau SKCK.</p>
+                        <a href="#" class="card-action-link">Ajukan Sekarang ➔</a>
+                    </div>
+                </div>
+
+                <div class="card-admin">
+                    <div class="icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <div class="card-admin-content">
+                        <h3>Bantuan KTP & KK</h3>
+                        <p>Panduan pembaharuan data Kartu Keluarga atau penggantian KTP rusak/hilang.</p>
+                        <a href="#" class="card-action-link">Lihat Prosedur ➔</a>
+                    </div>
+                </div>
+
+                <div class="card-admin">
+                    <div class="icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+                    </div>
+                    <div class="card-admin-content">
+                        <h3>Akta Kelahiran</h3>
+                        <p>Pengurusan dokumen pendukung untuk permohonan akta kelahiran baru.</p>
+                        <a href="#" class="card-action-link">Pelajari Detail ➔</a>
+                    </div>
+                </div>
+
+                <div class="card-admin">
+                    <div class="icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    </div>
+                    <div class="card-admin-content">
+                        <h3>Keterangan Domisili</h3>
+                        <p>Validasi tempat tinggal untuk warga kontrak atau pendatang baru di wilayah RT.</p>
+                        <a href="#" class="card-action-link">Mulai Validasi ➔</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="main-section">
+        <div class="container">
+            <div class="formulir-header">
+                <div class="section-title">
+                    <h2>Formulir Digital</h2>
+                    <p>Unduh dokumen atau isi formulir secara daring.</p>
+                </div>
+                <div class="filter-badges">
+                    <span class="badge badge-blue">Terbaru</span>
+                    <span class="badge badge-gray">PDF Ready</span>
+                </div>
+            </div>
+
+            <div class="formulir-grid">
+                <div class="card-formulir-main">
+                    <div>
+                        <div class="icon-box-cyan">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                        </div>
+                        <h3>Pendataan Warga Baru & Tamu Menginap</h3>
+                        <p>Formulir wajib bagi penghuni baru atau tamu yang menginap lebih dari 1x24 jam untuk pemutakhiran database keamanan lingkungan.</p>
+                    </div>
+                    <div class="card-main-footer">
+                        <div class="avatar-group">
+                            <img class="avatar" src="https://via.placeholder.com/150" alt="Warga">
+                            <img class="avatar" src="https://via.placeholder.com/150" alt="Warga">
+                            <div class="avatar-count">12+</div>
+                        </div>
+                        <a href="#" class="btn-cyan">Isi Online <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+                    </div>
+                </div>
+
+                <div class="card-formulir-sub">
+                    <div class="icon-sub">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M12 18v-6"></path><path d="M9 15l3-3 3 3"></path></svg>
+                    </div>
+                    <div class="card-sub-info">
+                        <h4>Blangko Izin Keramaian</h4>
+                        <p>Unduh PDF (1.2 MB)</p>
+                    </div>
+                </div>
+
+                <div class="card-formulir-sub">
+                    <div class="icon-sub">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                    </div>
+                    <div class="card-sub-info">
+                        <h4>Form Aspirasi Warga</h4>
+                        <p>DOCX Template</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <h2>Butuh Layanan Lainnya?</h2>
+                <p>Jika Anda tidak menemukan layanan yang dicari, silakan hubungi pengurus RT melalui kanal komunikasi resmi kami.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn-cta-white">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg> 
+                        Chat Pengurus
+                    </a>
+                    <a href="#" class="btn-cta-outline">Lihat Kontak Lengkap</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-wrapper">
+            <div class="footer-logo">Kabar RT</div>
+            <div>&copy; 2026 Kabar RT. All rights reserved.</div>
+        </div>
+    </footer>
+
+</body>
+</html>
