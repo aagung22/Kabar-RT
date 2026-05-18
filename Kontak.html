@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - Kabar RT</title>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7f7;
+            color: #333;
+        }
+
+        /* HEADER */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px 5%;
+            background-color: white;
+        }
+
+        #logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #005f5f;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #005f5f;
+        }
+
+        /* HERO */
+        .hero {
+            padding: 50px 5%;
+        }
+
+        .hero span {
+            color: #005f5f;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            line-height: 1.1;
+            color: #005f5f;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            color: #666;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        /* KONTAK CONTAINER */
+        .kontak-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 0 5% 50px;
+            align-items: flex-start;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            flex: 1;
+            min-width: 280px;
+        }
+
+        /* CARD KONTAK */
+        .quick-contact {
+            background-color: #dff3ef;
+        }
+
+        .quick-contact h3 {
+            color: #005f5f;
+            margin-bottom: 20px;
+        }
+
+        .contact-box {
+            background-color: white;
+            border-radius: 15px;
+            padding: 18px;
+            margin-bottom: 18px;
+        }
+
+        .contact-box small {
+            color: #777;
+            font-size: 12px;
+        }
+
+        .contact-box h4 {
+            margin: 10px 0;
+        }
+
+        .contact-box button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            background-color: #005f5f;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* DARURAT */
+        .emergency {
+            background: linear-gradient(135deg, #005f5f, #3366cc);
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .emergency h2 {
+            margin: 15px 0;
+            font-size: 36px;
+        }
+
+        /* FORM */
+        form label {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            margin-bottom: 18px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-family: inherit;
+        }
+
+        form textarea {
+            height: 120px;
+            resize: none;
+        }
+
+        form button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            background-color: #005f5f;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* MAP */
+        .map-card iframe {
+            width: 100%;
+            height: 250px;
+            border: none;
+            border-radius: 15px;
+            margin-top: 15px;
+        }
+
+        .operasional {
+            background-color: #dff3ef;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+
+        /* BANNER */
+        .banner {
+            margin: 0 5% 50px;
+            background-color: #d9d9d9;
+            border-radius: 20px;
+            overflow: hidden;
+
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .banner-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 35px;
+        }
+
+        .banner-text h2 {
+            color: #005f5f;
+            margin-bottom: 15px;
+        }
+
+        .banner-text p {
+            line-height: 1.8;
+        }
+
+        .banner img {
+            flex: 1;
+            min-width: 300px;
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: white;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <div id="logo">Kabar RT</div>
+
+        <nav>
+            <a href="#">Beranda</a>
+            <a href="#">Layanan Warga</a>
+            <a href="#">Profil</a>
+            <a href="#">Informasi</a>
+            <a href="#">Kontak</a>
+        </nav>
+
+    </header>
+    
+    <!-- HERO -->
+    <section class="hero">
+
+        <span>HUBUNGI KAMI</span>
+
+        <h1>
+            Menjaga Hubungan,<br>
+            Membangun Lingkungan.
+        </h1>
+
+        <p>
+            Kami hadir untuk mendengar aspirasi, keluhan, dan pertanyaan warga.
+            Silakan hubungi pengurus RT atau kunjungi sekretariat kami secara langsung.
+        </p>
+
+    </section>
+
+    <!-- KONTAK -->
+    <section class="kontak-container">
+
+        <!-- KIRI -->
+        <div class="card quick-contact">
+
+            <h3>Kontak Cepat Pengurus</h3>
+
+            <div class="contact-box">
+                <small>KETUA RT</small>
+                <h4>Bapak Bagus</h4>
+                <button>WhatsApp Ketua RT</button>
+            </div>
+
+            <div class="contact-box">
+                <small>WAKIL KETUA RT</small>
+                <h4>Bapak Yusuf</h4>
+                <button>WhatsApp Wakil RT</button>
+            </div>
+
+            <div class="emergency">
+                <p>Layanan Darurat</p>
+                <h2>112 / 119</h2>
+                <small>SIAGA 24 JAM</small>
+            </div>
+
+        </div>
+
+        <!-- TENGAH -->
+        <div class="card">
+
+            <h3>Formulir Pesan</h3>
+
+            <br>
+
+            <form>
+
+                <label>Nama Lengkap</label>
+                <input type="text" placeholder="Contoh: Agus Budi">
+
+                <label>Nomor HP</label>
+                <input type="text" placeholder="Contoh: 0812xxxxxxx">
+
+                <label>Pesan atau Aduan</label>
+                <textarea placeholder="Tuliskan pesan anda di sini..."></textarea>
+
+                <button type="submit">Kirim Pesan Sekarang</button>
+
+            </form>
+
+        </div>
+
+        <!-- KANAN -->
+        <div class="card map-card">
+
+            <h3>Lokasi Sekretariat</h3>
+
+            <br>
+
+            <p>
+                Jl. Simorejo Sari A VI NO 27, RT 03/RW 06<br>
+                Kota Surabaya
+            </p>
+
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.8667130501494!2d112.7081611!3d-7.2560068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7feb108fdc619%3A0xd26d918d1dce585d!2sJl.%20Simorejo%20Sari%20A%20VI%20No.27%2C%20Simomulyo%2C%20Kec.%20Sukomanunggal%2C%20Surabaya%2C%20Jawa%20Timur%2060281!5e0!3m2!1sid!2sid!4v1779107040717!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+
+            <div class="operasional">
+                <strong>Jam Operasional</strong>
+                <p>Setiap Hari — 24 Jam</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- BANNER -->
+    <section class="banner">
+
+        <div class="banner-text">
+
+            <h2>Saran & Kritik Anonim?</h2>
+
+            <p>
+                Jika Anda memiliki masukan yang bersifat rahasia untuk kenyamanan bersama,
+                Anda dapat menggunakan kotak saran fisik di depan kantor sekretariat.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <strong>Kabar RT</strong>
+
+        <p>© 2026 Kabar RT. All rights reserved.</p>
+
+    </footer>
+
+</body>
+
+</html>

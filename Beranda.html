@@ -1,0 +1,208 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Beranda - KabarRT</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 5%;
+            align-items: center;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .hero {
+            padding: 50px 5%;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-text {
+            width: 50%;
+        }
+
+        .hero-text h1 {
+            font-size: 3em;
+            color: #004d4d;
+        }
+
+        .layanan-section {
+            background-color: #f9f9f9;
+            padding: 50px 5%;
+        }
+
+        /* Implementasi Materi Shadowbox */
+        .card-layanan {
+            background-color: #004d4d;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 15px #ccc;
+            width: 45%;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .agenda-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        /* Implementasi Materi Span */
+        .date-box {
+            font-weight: bold;
+            color: #004d4d;
+            font-size: 1.2em;
+            display: block;
+        }
+
+        .footer-banner {
+            background-color: #004d4d;
+            color: white;
+            padding: 60px 5%;
+            text-align: left;
+        }
+
+        /* Implementasi Karakter Khusus */
+        footer {
+            padding: 20px 5%;
+            border-top: 1px solid #eee;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="logo"><strong>Kabar RT</strong></div>
+        <nav>
+            <a href="#">Beranda</a>
+            <a href="#">Layanan Warga</a>
+            <a href="#">Profil</a>
+            <a href="#">Informasi</a>
+            <a href="#">Kontak</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <span style="color: #004d4d; font-weight: bold">KABAR RT DIGITAL</span>
+                <h1>Kenyamanan Hidup Bertetangga.</h1>
+                <p>
+                    Platform digital untuk mendukung kerukunan dan kemudahan layanan
+                    warga dalam satu genggaman tangan.
+                </p>
+                <button>Jelajahi Fitur</button>
+                <button>Tentang Kami</button>
+            </div>
+            <div class="hero-image">
+                <img src="gotong_royong.jpg" alt="Foto Warga" width="500" height="350" style="border-radius: 20px" />
+            </div>
+        </section>
+
+        <section class="layanan-section">
+            <h2>Layanan Warga</h2>
+            <div id="content">
+                <div class="card-layanan">
+                    <h3>Surat Pengantar</h3>
+                    <p>Urus dokumen administrasi tanpa perlu menunggu lama.</p>
+                    <a href="#" style="color: white">Mulai Ajukan &rarr;</a>
+                </div>
+                <div class="card-layanan" style="background-color: white; color: #333">
+                    <h3>Lapor Masalah</h3>
+                    <p>Laporkan gangguan keamanan atau infrastruktur.</p>
+                    <a href="#" style="color: #004d4d">Buat Laporan</a>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding: 50px 5%">
+            <h2>Kabar Terkini & Agenda Warga</h2>
+            <table width="100%" cellpadding="10">
+                <tr>
+                    <td width="50%" valign="top">
+                        <table class="agenda-table" border="0">
+                            <tr>
+                                <td width="20%"><span class="date-box">15 MEI</span></td>
+                                <td>
+                                    <strong>Gotong Royong Kebersihan Taman</strong><br />Pukul
+                                    07.30 WIB - Selesai
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="date-box">22 MEI</span></td>
+                                <td>
+                                    <strong>Rapat Bulanan & Arisan</strong><br />Pukul 19.30 WIB
+                                    - Balai Warga Utama
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="25%">
+                        <article class="shadowbox" style="width: auto">
+                            <img src="gebyar.jpg" width="100%" alt="Acara" />
+                            <h4>Acara Gebyar 17 Agustus 2025</h4>
+                            <p>RT 03 rutin mengadakan acara...</p>
+                        </article>
+                    </td>
+                    <td width="25%">
+                        <article class="shadowbox" style="width: auto">
+                            <img src="lomba.jpg" width="100%" alt="Lomba" />
+                            <h4>Kegiatan Lomba 17 Agustus</h4>
+                            <p>Kegiatan tersebut merupakan lomba...</p>
+                        </article>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <section class="footer-banner">
+            <div id="content-info">
+                <h2>Bersama Membangun Harmoni</h2>
+                <p>
+                    Kabar RT lahir dari semangat untuk mendigitalisasi kemasyarakatan.
+                    Kami percaya bahwa teknologi harus mempererat hubungan antar
+                    manusia, bukan menjauhkannya.
+                </p>
+                <table width="300" border="0">
+                    <tr>
+                        <td>
+                            <h1>100+</h1>
+                            Warga Aktif
+                        </td>
+                        <td>
+                            <h1>12+</h1>
+                            Program Tahunan
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <table width="100%">
+            <tr>
+                <td><strong>Kabar RT</strong></td>
+                <td align="right">&copy; 2026 Kabar RT. All rights reserved.</td>
+            </tr>
+        </table>
+    </footer>
+</body>
+
+</html>
