@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kabar RT - Layanan Warga</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <style>
         /* --- RESET & GLOBAL STYLES --- */
         * {
@@ -18,9 +20,8 @@
         }
 
         body {
-            background-color: #f8fafc;
-            color: #334155;
-            overflow-x: hidden;
+            background-color: #f4f7f7;
+            color: #333;
         }
 
         a {
@@ -63,15 +64,45 @@
 
         .nav-links a {
             font-size: 15px;
-            font-weight: 500;
+            font-weight: 600;
+            /* Menggunakan 600 agar transisi ke hover tidak membuat teks melompat */
             color: #64748b;
+            position: relative;
+            padding-bottom: 6px;
         }
 
-        .nav-links a.active, .nav-links a:hover {
+        /* Membuat Garis Bawah Menggunakan Pseudo-Element (Default: Lebar 0%) */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #004d40;
+            transition: width 0.3s ease;
+            /* Membuat efek garis memanjang yang halus */
+        }
+
+        /* Efek Ketika di-Hover */
+        .nav-links a:hover {
+            color: #004d40;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+            /* Garis memanjang penuh saat di-hover */
+        }
+
+        /* Style Khusus untuk Halaman yang Sedang Aktif */
+        .nav-links a.active {
             color: #004d40;
             font-weight: 700;
-            border-bottom: 2px solid #004d40;
-            padding-bottom: 4px;
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+            /* Garis bawah tetap muncul penuh di halaman aktif */
         }
 
         /* --- HERO SECTION --- */
@@ -103,7 +134,8 @@
         }
 
         .hero h1 span {
-            color: #1e40af; /* Warna biru pada kata "Digital" */
+            color: #1e40af;
+            /* Warna biru pada kata "Digital" */
         }
 
         .hero p {
@@ -377,7 +409,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
 
         .btn-cta-outline {
@@ -416,9 +448,12 @@
             .formulir-grid {
                 grid-template-columns: 1fr;
             }
-            .card-formulir-main, .card-formulir-sub {
+
+            .card-formulir-main,
+            .card-formulir-sub {
                 min-height: auto;
             }
+
             .card-sub-info {
                 margin-top: 40px;
             }
@@ -428,25 +463,110 @@
             .admin-grid {
                 grid-template-columns: 1fr;
             }
+
             .hero h1 {
                 font-size: 40px;
             }
+
             .formulir-header {
                 flex-direction: column;
                 gap: 16px;
             }
+
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
             }
         }
+
+        /* --- HAMBURGER MENU --- */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: #004d40;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* --- SCROLL ANIMATION --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: #ffffff;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 32px;
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                list-style: none;
+            }
+
+            .nav-links a {
+                font-size: 20px;
+            }
+        }
     </style>
 </head>
+
 <body>
 
     <header>
         <div class="container navbar">
             <div class="logo">Kabar RT</div>
+            <button class="hamburger" aria-label="Menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
             <ul class="nav-links">
                 <li><a href="beranda.html">Beranda</a></li>
                 <li><a href="#" class="active">Layanan Warga</a></li>
@@ -462,7 +582,8 @@
             <div class="hero-content">
                 <span class="hero-tag">Pelayanan Terpadu</span>
                 <h1>Layanan Warga <span>Digital.</span></h1>
-                <p>Kelola administrasi kependudukan dan akses dokumen penting langsung dari perangkat Anda. Cepat, transparan, dan tanpa antrean.</p>
+                <p>Kelola administrasi kependudukan dan akses dokumen penting langsung dari perangkat Anda. Cepat,
+                    transparan, dan tanpa antrean.</p>
             </div>
         </div>
     </section>
@@ -477,7 +598,13 @@
             <div class="admin-grid">
                 <div class="card-admin">
                     <div class="icon-box">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                        </svg>
                     </div>
                     <div class="card-admin-content">
                         <h3>Surat Pengantar RT/RW</h3>
@@ -488,7 +615,13 @@
 
                 <div class="card-admin">
                     <div class="icon-box">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
                     </div>
                     <div class="card-admin-content">
                         <h3>Bantuan KTP & KK</h3>
@@ -499,7 +632,13 @@
 
                 <div class="card-admin">
                     <div class="icon-box">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                            <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                            <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                        </svg>
                     </div>
                     <div class="card-admin-content">
                         <h3>Akta Kelahiran</h3>
@@ -510,7 +649,11 @@
 
                 <div class="card-admin">
                     <div class="icon-box">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
                     </div>
                     <div class="card-admin-content">
                         <h3>Keterangan Domisili</h3>
@@ -539,10 +682,15 @@
                 <div class="card-formulir-main">
                     <div>
                         <div class="icon-box-cyan">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                            </svg>
                         </div>
                         <h3>Pendataan Warga Baru & Tamu Menginap</h3>
-                        <p>Formulir wajib bagi penghuni baru atau tamu yang menginap lebih dari 1x24 jam untuk pemutakhiran database keamanan lingkungan.</p>
+                        <p>Formulir wajib bagi penghuni baru atau tamu yang menginap lebih dari 1x24 jam untuk
+                            pemutakhiran database keamanan lingkungan.</p>
                     </div>
                     <div class="card-main-footer">
                         <div class="avatar-group">
@@ -550,13 +698,24 @@
                             <img class="avatar" src="https://via.placeholder.com/150" alt="Warga">
                             <div class="avatar-count">12+</div>
                         </div>
-                        <a href="#" class="btn-cyan">Isi Online <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+                        <a href="#" class="btn-cyan">Isi Online <svg width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg></a>
                     </div>
                 </div>
 
                 <div class="card-formulir-sub">
                     <div class="icon-sub">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M12 18v-6"></path><path d="M9 15l3-3 3 3"></path></svg>
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <path d="M12 18v-6"></path>
+                            <path d="M9 15l3-3 3 3"></path>
+                        </svg>
                     </div>
                     <div class="card-sub-info">
                         <h4>Blangko Izin Keramaian</h4>
@@ -566,7 +725,12 @@
 
                 <div class="card-formulir-sub">
                     <div class="icon-sub">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
                     </div>
                     <div class="card-sub-info">
                         <h4>Form Aspirasi Warga</h4>
@@ -577,10 +741,14 @@
 
             <div class="cta-box">
                 <h2>Butuh Layanan Lainnya?</h2>
-                <p>Jika Anda tidak menemukan layanan yang dicari, silakan hubungi pengurus RT melalui kanal komunikasi resmi kami.</p>
+                <p>Jika Anda tidak menemukan layanan yang dicari, silakan hubungi pengurus RT melalui kanal komunikasi
+                    resmi kami.</p>
                 <div class="cta-buttons">
                     <a href="#" class="btn-cta-white">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg> 
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
                         Chat Pengurus
                     </a>
                     <a href="#" class="btn-cta-outline">Lihat Kontak Lengkap</a>
@@ -596,5 +764,7 @@
         </div>
     </footer>
 
+    <script src="js/main.js"></script>
 </body>
+
 </html>

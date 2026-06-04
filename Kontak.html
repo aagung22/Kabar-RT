@@ -1,383 +1,509 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontak - Kabar RT</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontak - Kabar RT</title>
 
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Plus Jakarta Sans", sans-serif;
+    }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f4f7f7;
-            color: #333;
-        }
+    /* BODY */
+    body {
+      background-color: #f4f7f7;
+      color: #333;
+    }
 
-        /* HEADER */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            padding: 20px 5%;
-            background-color: white;
-        }
+    /* --- HEADER & NAVBAR DISESUAIKAN DENGAN BERANDA --- */
+    header {
+      background-color: #ffffff;
+      padding: 24px 5%;
+      border-bottom: 1px solid #f1f5f9;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        #logo {
-            font-size: 28px;
-            font-weight: 700;
-            color: #005f5f;
+    #logo {
+      font-size: 24px;
+      font-weight: 800;
+      color: #005f5f;
+    }
+
+    nav {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    nav a {
+      font-size: 15px;
+      font-weight: 600;
+      color: #64748b;
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 6px;
+      transition: color 0.3s ease;
+    }
+
+    /* Membuat Garis Bawah Menggunakan Pseudo-Element */
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #005f5f;
+      transition: width 0.3s ease;
+    }
+
+    /* Efek Ketika di-Hover */
+    nav a:hover {
+      color: #005f5f;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Style Khusus untuk Halaman Kontak (Aktif) */
+    nav a.active {
+      color: #005f5f;
+      font-weight: 700;
+    }
+
+    nav a.active::after {
+      width: 100%;
+    }
+
+    /* --- AKHIR PERUBAHAN NAVBAR --- */
+
+    /* HERO */
+    .hero {
+      padding: 50px 5%;
+    }
+
+    .hero span {
+      color: #005f5f;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .hero h1 {
+      font-size: 60px;
+      line-height: 1.1;
+      color: #005f5f;
+      margin-top: 15px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      color: #666;
+      line-height: 1.8;
+      font-size: 18px;
+    }
+
+    /* KONTAK CONTAINER */
+    .kontak-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 0 5% 50px;
+      align-items: flex-start;
+    }
+
+    /* CARD */
+    .card {
+      background-color: white;
+      border-radius: 18px;
+      padding: 25px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      flex: 1;
+      min-width: 280px;
+    }
+
+    /* QUICK CONTACT */
+    .quick-contact {
+      background-color: #dff3ef;
+    }
+
+    .quick-contact h3 {
+      color: #005f5f;
+      margin-bottom: 20px;
+    }
+
+    /* CONTACT BOX */
+    .contact-box {
+      background-color: white;
+      border-radius: 15px;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+
+    .contact-box small {
+      color: #777;
+      font-size: 12px;
+    }
+
+    .contact-box h4 {
+      margin: 10px 0;
+    }
+
+    .contact-box button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 20px;
+      background-color: #005f5f;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .contact-box button:hover {
+      background-color: #004747;
+    }
+
+    /* DARURAT */
+    .emergency {
+      background: linear-gradient(135deg, #005f5f, #3366cc);
+      color: white;
+      border-radius: 15px;
+      padding: 20px;
+    }
+
+    .emergency h2 {
+      margin: 15px 0;
+      font-size: 36px;
+    }
+
+    /* FORM */
+    form label {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      margin-bottom: 18px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-family: inherit;
+    }
+
+    form textarea {
+      height: 120px;
+      resize: none;
+    }
+
+    form button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 25px;
+      background-color: #005f5f;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    form button:hover {
+      background-color: #004747;
+    }
+
+    /* MAP */
+    .map-card iframe {
+      width: 100%;
+      height: 250px;
+      border: none;
+      border-radius: 15px;
+      margin-top: 15px;
+    }
+
+    /* OPERASIONAL */
+    .operasional {
+      background-color: #dff3ef;
+      padding: 15px;
+      border-radius: 12px;
+      margin-top: 15px;
+    }
+
+    /* BANNER */
+    .banner {
+      margin: 0 5% 50px;
+      background-color: #d9d9d9;
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .banner-text {
+      flex: 1;
+      min-width: 300px;
+      padding: 35px;
+    }
+
+    .banner-text h2 {
+      color: #005f5f;
+      margin-bottom: 15px;
+    }
+
+    .banner-text p {
+      line-height: 1.8;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: white;
+      padding: 20px 5%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 14px;
+      color: #666;
+    }
+
+      /* --- HAMBURGER MENU --- */
+      .hamburger {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+        z-index: 1001;
+      }
+
+      .hamburger span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background-color: #005f5f;
+        margin: 5px 0;
+        transition: all 0.3s ease;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+
+      /* --- SCROLL ANIMATION --- */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* --- TOAST NOTIFICATION --- */
+      .toast {
+        position: fixed;
+        top: 24px;
+        right: 24px;
+        padding: 16px 24px;
+        border-radius: 12px;
+        color: white;
+        font-size: 14px;
+        font-weight: 600;
+        z-index: 9999;
+        max-width: 400px;
+        animation: slideIn 0.4s ease;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      }
+
+      .toast.success { background-color: #059669; }
+      .toast.error { background-color: #dc2626; }
+
+      @keyframes slideIn {
+        from { transform: translateX(120%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+      }
+
+      @keyframes slideOut {
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(120%); opacity: 0; }
+      }
+
+      @media (max-width: 768px) {
+        .hamburger {
+          display: block;
         }
 
         nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          background-color: #ffffff;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 32px;
+          z-index: 1000;
+        }
+
+        nav.active {
+          display: flex;
         }
 
         nav a {
-            text-decoration: none;
-            color: #333;
-            font-size: 14px;
+          font-size: 20px;
         }
-
-        nav a:hover {
-            color: #005f5f;
-        }
-
-        /* HERO */
-        .hero {
-            padding: 50px 5%;
-        }
-
-        .hero span {
-            color: #005f5f;
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .hero h1 {
-            font-size: 60px;
-            line-height: 1.1;
-            color: #005f5f;
-            margin-top: 15px;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            max-width: 700px;
-            color: #666;
-            line-height: 1.8;
-            font-size: 18px;
-        }
-
-        /* KONTAK CONTAINER */
-        .kontak-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            padding: 0 5% 50px;
-            align-items: flex-start;
-        }
-
-        .card {
-            background-color: white;
-            border-radius: 18px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            flex: 1;
-            min-width: 280px;
-        }
-
-        /* CARD KONTAK */
-        .quick-contact {
-            background-color: #dff3ef;
-        }
-
-        .quick-contact h3 {
-            color: #005f5f;
-            margin-bottom: 20px;
-        }
-
-        .contact-box {
-            background-color: white;
-            border-radius: 15px;
-            padding: 18px;
-            margin-bottom: 18px;
-        }
-
-        .contact-box small {
-            color: #777;
-            font-size: 12px;
-        }
-
-        .contact-box h4 {
-            margin: 10px 0;
-        }
-
-        .contact-box button {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-radius: 20px;
-            background-color: #005f5f;
-            color: white;
-            cursor: pointer;
-        }
-
-        /* DARURAT */
-        .emergency {
-            background: linear-gradient(135deg, #005f5f, #3366cc);
-            color: white;
-            border-radius: 15px;
-            padding: 20px;
-        }
-
-        .emergency h2 {
-            margin: 15px 0;
-            font-size: 36px;
-        }
-
-        /* FORM */
-        form label {
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        form input,
-        form textarea {
-            width: 100%;
-            padding: 12px;
-            margin-top: 8px;
-            margin-bottom: 18px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            font-family: inherit;
-        }
-
-        form textarea {
-            height: 120px;
-            resize: none;
-        }
-
-        form button {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 25px;
-            background-color: #005f5f;
-            color: white;
-            cursor: pointer;
-        }
-
-        /* MAP */
-        .map-card iframe {
-            width: 100%;
-            height: 250px;
-            border: none;
-            border-radius: 15px;
-            margin-top: 15px;
-        }
-
-        .operasional {
-            background-color: #dff3ef;
-            padding: 15px;
-            border-radius: 12px;
-            margin-top: 15px;
-        }
-
-        /* BANNER */
-        .banner {
-            margin: 0 5% 50px;
-            background-color: #d9d9d9;
-            border-radius: 20px;
-            overflow: hidden;
-
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .banner-text {
-            flex: 1;
-            min-width: 300px;
-            padding: 35px;
-        }
-
-        .banner-text h2 {
-            color: #005f5f;
-            margin-bottom: 15px;
-        }
-
-        .banner-text p {
-            line-height: 1.8;
-        }
-
-        .banner img {
-            flex: 1;
-            min-width: 300px;
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        /* FOOTER */
-        footer {
-            background-color: white;
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 10px;
-            font-size: 14px;
-            color: #666;
-        }
-    </style>
+      }
+  </style>
 </head>
 
 <body>
+  <!-- HEADER -->
+  <header>
+    <!-- LOGO -->
+    <div id="logo">Kabar RT</div>
+    <button class="hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-    <!-- HEADER -->
-    <header>
+    <!-- NAVBAR -->
+    <nav>
+      <a href="beranda.html">Beranda</a>
+      <a href="layanan_warga.html">Layanan Warga</a>
+      <a href="profil.html">Profil</a>
+      <a href="informasi.html">Informasi</a>
+      <a href="kontak.html" class="active">Kontak</a>
+    </nav>
+  </header>
 
-        <div id="logo">Kabar RT</div>
+  <!-- HERO -->
+  <section class="hero">
+    <span>HUBUNGI KAMI</span>
+    <h1>
+      Menjaga Hubungan,<br />
+      Membangun Lingkungan.
+    </h1>
+    <p>
+      Kami hadir untuk mendengar aspirasi, keluhan, dan pertanyaan warga.
+      Silakan hubungi pengurus RT atau kunjungi sekretariat kami secara
+      langsung.
+    </p>
+  </section>
 
-        <nav>
-            <a href="beranda.html">Beranda</a>
-            <a href="layanan_warga.html">Layanan Warga</a>
-            <a href="Profil.html">Profil</a>
-            <a href="informasi.html">Informasi</a>
-            <a href="#" class="active">Kontak</a>
-        </nav>
+  <!-- KONTAK -->
+  <section class="kontak-container">
+    <!-- KIRI -->
+    <div class="card quick-contact">
+      <h3>Kontak Cepat Pengurus</h3>
+      <!-- BOX -->
+      <div class="contact-box">
+        <small>KETUA RT</small>
+        <h4>Bapak Bagus</h4>
+        <a href="https://wa.me/6287782691102" target="_blank">
+          <button>WhatsApp Ketua RT</button>
+        </a>
+      </div>
+      <!-- BOX -->
+      <div class="contact-box">
+        <small>WAKIL KETUA RT</small>
+        <h4>Bapak Yusuf</h4>
+        <a href="https://wa.me/62881036815824" target="_blank">
+          <button>WhatsApp Wakil RT</button>
+        </a>
+      </div>
+      <!-- DARURAT -->
+      <div class="emergency">
+        <p>Layanan Darurat</p>
+        <h2>112 / 119</h2>
+        <small>SIAGA 24 JAM</small>
+      </div>
+    </div>
 
-    </header>
-    
-    <!-- HERO -->
-    <section class="hero">
+    <!-- TENGAH -->
+    <div class="card">
+      <h3>Formulir Pesan</h3>
+      <br />
+      <form>
+        <label>Nama Lengkap</label>
+        <input type="text" placeholder="Contoh: Agus Budi" />
+        <label>Nomor HP</label>
+        <input type="text" placeholder="Contoh: 0812xxxxxxx" />
+        <label>Pesan atau Aduan</label>
+        <textarea placeholder="Tuliskan pesan anda di sini..."></textarea>
+        <button type="submit">Kirim Pesan Sekarang</button>
+      </form>
+    </div>
 
-        <span>HUBUNGI KAMI</span>
+    <!-- KANAN -->
+    <div class="card map-card">
+      <h3>Lokasi Sekretariat</h3>
+      <br />
+      <p>
+        Jl. Simorejo Sari A VI No.27<br />
+        Surabaya, Jawa Timur
+      </p>
+      <!-- MAP -->
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.8667130501494!2d112.7081611!3d-7.2560068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7feb108fdc619%3A0xd26d918d1dce585d!2sJl.%20Simorejo%20Sari%20A%20VI%20No.27%2C%20Simomulyo%2C%20Kec.%20Sukomanunggal%2C%20Surabaya%2C%20Jawa%20Timur%2060281!5e0!3m2!1sid!2sid!4v1779107040717!5m2!1sid!2sid"
+        allowfullscreen="" loading="lazy">
+      </iframe>
+      <!-- OPERASIONAL -->
+      <div class="operasional">
+        <strong>Jam Operasional</strong>
+        <p>Setiap Hari — 24 Jam</p>
+      </div>
+    </div>
+  </section>
 
-        <h1>
-            Menjaga Hubungan,<br>
-            Membangun Lingkungan.
-        </h1>
+  <!-- BANNER -->
+  <section class="banner">
+    <div class="banner-text">
+      <h2>Saran & Kritik Anonim?</h2>
+      <p>
+        Jika Anda memiliki masukan yang bersifat rahasia untuk kenyamanan
+        bersama, Anda dapat menggunakan kotaran fisik di depan kantor
+        sekretariat.
+      </p>
+    </div>
+  </section>
 
-        <p>
-            Kami hadir untuk mendengar aspirasi, keluhan, dan pertanyaan warga.
-            Silakan hubungi pengurus RT atau kunjungi sekretariat kami secara langsung.
-        </p>
-
-    </section>
-
-    <!-- KONTAK -->
-    <section class="kontak-container">
-
-        <!-- KIRI -->
-        <div class="card quick-contact">
-
-            <h3>Kontak Cepat Pengurus</h3>
-
-            <div class="contact-box">
-                <small>KETUA RT</small>
-                <h4>Bapak Bagus</h4>
-                <button>WhatsApp Ketua RT</button>
-            </div>
-
-            <div class="contact-box">
-                <small>WAKIL KETUA RT</small>
-                <h4>Bapak Yusuf</h4>
-                <button>WhatsApp Wakil RT</button>
-            </div>
-
-            <div class="emergency">
-                <p>Layanan Darurat</p>
-                <h2>112 / 119</h2>
-                <small>SIAGA 24 JAM</small>
-            </div>
-
-        </div>
-
-        <!-- TENGAH -->
-        <div class="card">
-
-            <h3>Formulir Pesan</h3>
-
-            <br>
-
-            <form>
-
-                <label>Nama Lengkap</label>
-                <input type="text" placeholder="Contoh: Agus Budi">
-
-                <label>Nomor HP</label>
-                <input type="text" placeholder="Contoh: 0812xxxxxxx">
-
-                <label>Pesan atau Aduan</label>
-                <textarea placeholder="Tuliskan pesan anda di sini..."></textarea>
-
-                <button type="submit">Kirim Pesan Sekarang</button>
-
-            </form>
-
-        </div>
-
-        <!-- KANAN -->
-        <div class="card map-card">
-
-            <h3>Lokasi Sekretariat</h3>
-
-            <br>
-
-            <p>
-                Jl. Simorejo Sari A VI NO 27, RT 03/RW 06<br>
-                Kota Surabaya
-            </p>
-
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.8667130501494!2d112.7081611!3d-7.2560068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7feb108fdc619%3A0xd26d918d1dce585d!2sJl.%20Simorejo%20Sari%20A%20VI%20No.27%2C%20Simomulyo%2C%20Kec.%20Sukomanunggal%2C%20Surabaya%2C%20Jawa%20Timur%2060281!5e0!3m2!1sid!2sid!4v1779107040717!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-
-            <div class="operasional">
-                <strong>Jam Operasional</strong>
-                <p>Setiap Hari — 24 Jam</p>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- BANNER -->
-    <section class="banner">
-
-        <div class="banner-text">
-
-            <h2>Saran & Kritik Anonim?</h2>
-
-            <p>
-                Jika Anda memiliki masukan yang bersifat rahasia untuk kenyamanan bersama,
-                Anda dapat menggunakan kotak saran fisik di depan kantor sekretariat.
-            </p>
-
-        </div>
-
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-
-        <strong>Kabar RT</strong>
-
-        <p>© 2026 Kabar RT. All rights reserved.</p>
-
-    </footer>
-
+  <!-- FOOTER -->
+  <footer>
+    <strong>Kabar RT</strong>
+    <p>© 2026 Kabar RT. All rights reserved.</p>
+  </footer>
+  <script src="js/main.js"></script>
+  <script src="js/kontak.js"></script>
 </body>
 
 </html>
