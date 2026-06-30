@@ -1,6 +1,6 @@
 // ===== HAMBURGER MENU =====
 const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-links') || document.querySelector('nav');
+const navMenu = document.querySelector('.nav-links') || document.querySelector('.nav-menu') || document.querySelector('nav');
 
 hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('active');
@@ -15,7 +15,7 @@ navMenu.querySelectorAll('a').forEach(link => {
 });
 
 // ===== SCROLL ANIMATION =====
-document.querySelectorAll('section:not(.hero)').forEach(s => {
+document.querySelectorAll('section:not(.hero):not(.hero-portal)').forEach(s => {
   s.classList.add('fade-in');
 });
 

@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kabar RT - Beranda Full Width</title>
+  <title>Kabar RT - Portal Resmi Warga</title>
+  <meta name="description" content="Portal resmi informasi dan layanan warga RT. Temukan pengumuman, agenda, dan layanan administrasi dalam satu tempat." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
@@ -30,167 +31,573 @@
       transition: all 0.3s ease;
     }
 
-    /* PERUBAHAN: Mengubah max-width menjadi 100% dengan padding yang proporsional di layar lebar */
     .container {
       width: 100%;
       max-width: 100%;
       padding: 0 5%;
-      /* Memberikan jarak 5% dari tepi kanan dan kiri browser */
       margin: 0 auto;
     }
 
-    /* --- NAVBAR (OPTIMIZED WITH SMOOTH HOVER EFFECT) --- */
-    header {
-      background-color: #ffffff;
-      padding: 24px 0;
-      border-bottom: 1px solid #f1f5f9;
+    /* ============================================ */
+    /* === 1. TOP BAR (Bar Utilitas Hijau Gelap) === */
+    /* ============================================ */
+    .top-bar {
+      background-color: #1a3c2a;
+      padding: 8px 0;
+      font-size: 13px;
+      color: #c8e6c9;
     }
 
-    .navbar {
+    .top-bar-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .logo {
-      font-size: 24px;
-      font-weight: 800;
-      color: #004d40;
-    }
-
-    .nav-links {
+    .top-bar-brand {
       display: flex;
-      gap: 40px;
-      list-style: none;
+      align-items: center;
+      gap: 12px;
     }
 
-    .nav-links a {
-      font-size: 15px;
-      font-weight: 600;
-      /* Menggunakan 600 agar transisi ke hover tidak membuat teks melompat */
-      color: #64748b;
-      position: relative;
-      padding-bottom: 6px;
+    .top-bar-logo {
+      font-size: 18px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.5px;
     }
 
-    /* Membuat Garis Bawah Menggunakan Pseudo-Element (Default: Lebar 0%) */
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: #004d40;
-      transition: width 0.3s ease;
-      /* Membuat efek garis memanjang yang halus */
+    .top-bar-divider {
+      width: 1px;
+      height: 20px;
+      background-color: rgba(255, 255, 255, 0.25);
     }
 
-    /* Efek Ketika di-Hover */
-    .nav-links a:hover {
-      color: #004d40;
+    .top-bar-subtitle {
+      font-size: 12px;
+      color: #a5d6a7;
     }
 
-    .nav-links a:hover::after {
-      width: 100%;
-      /* Garis memanjang penuh saat di-hover */
+    .top-bar-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    /* Style Khusus untuk Halaman yang Sedang Aktif */
-    .nav-links a.active {
-      color: #004d40;
-      font-weight: 700;
+    .top-bar-search {
+      display: flex;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      padding: 6px 14px;
+      gap: 8px;
+      transition: background-color 0.3s ease;
     }
 
-    .nav-links a.active::after {
-      width: 100%;
-      /* Garis bawah tetap muncul penuh di halaman aktif */
+    .top-bar-search:hover {
+      background-color: rgba(255, 255, 255, 0.2);
     }
 
-    /* --- HERO SECTION --- */
-    .hero {
-      padding: 100px 0;
+    .top-bar-search input {
+      background: none;
+      border: none;
+      outline: none;
+      color: #ffffff;
+      font-size: 12px;
+      width: 140px;
+      font-family: "Plus Jakarta Sans", sans-serif;
+    }
+
+    .top-bar-search input::placeholder {
+      color: #a5d6a7;
+    }
+
+    .top-bar-search svg {
+      color: #a5d6a7;
+      flex-shrink: 0;
+    }
+
+    .top-bar-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #c8e6c9;
+      background-color: rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .top-bar-icon:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+    }
+
+    /* ============================================ */
+    /* === 2. MAIN HEADER (Logo + Countdown)     === */
+    /* ============================================ */
+    .main-header {
       background-color: #ffffff;
+      padding: 20px 0;
+      border-bottom: 1px solid #e8f5e9;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      /* Menyesuaikan proporsi teks dan gambar */
-      gap: 80px;
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
       align-items: center;
     }
 
-    .hero-tag {
-      display: inline-block;
-      background-color: #e0f2f1;
-      color: #00796b;
-      padding: 6px 12px;
-      border-radius: 4px;
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 24px;
-    }
-
-    .hero h1 {
-      font-size: 64px;
-      /* Sedikit diperbesar karena layar lebih luas */
-      font-weight: 800;
-      line-height: 1.15;
-      color: #004d40;
-      margin-bottom: 24px;
-    }
-
-    .hero p {
-      font-size: 18px;
-      line-height: 1.6;
-      color: #64748b;
-      margin-bottom: 40px;
-      max-width: 600px;
-    }
-
-    .hero-buttons {
+    .header-brand {
       display: flex;
+      align-items: center;
       gap: 16px;
     }
 
-    .btn-primary {
-      background-color: #004d40;
+    .header-emblem {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, #2e7d32, #1b5e20);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: #ffffff;
-      padding: 14px 32px;
-      border-radius: 24px;
-      font-weight: 600;
+      font-size: 24px;
+      font-weight: 800;
+      box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+      flex-shrink: 0;
+    }
+
+    .header-text h1 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #1b5e20;
+      line-height: 1.2;
+    }
+
+    .header-text p {
+      font-size: 13px;
+      color: #64748b;
+      margin-top: 2px;
+    }
+
+    /* Countdown */
+    .header-countdown {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+    }
+
+    .countdown-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #e65100;
+      font-weight: 700;
+    }
+
+    .countdown-event {
       font-size: 15px;
+      font-weight: 700;
+      color: #1b5e20;
     }
 
-    .btn-primary:hover {
-      background-color: #00332c;
+    .countdown-boxes {
+      display: flex;
+      gap: 8px;
     }
 
-    .btn-secondary {
-      background-color: #e2e8f0;
-      color: #334155;
-      padding: 14px 32px;
-      border-radius: 24px;
+    .countdown-box {
+      background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+      border-radius: 10px;
+      padding: 8px 12px;
+      text-align: center;
+      min-width: 56px;
+      border: 1px solid #a5d6a7;
+    }
+
+    .countdown-box .c-number {
+      display: block;
+      font-size: 22px;
+      font-weight: 800;
+      color: #1b5e20;
+      line-height: 1;
+    }
+
+    .countdown-box .c-label {
+      display: block;
+      font-size: 9px;
+      font-weight: 700;
+      color: #4caf50;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+
+    .header-date {
+      font-size: 12px;
+      color: #78909c;
+    }
+
+    /* ============================================ */
+    /* === 3. NAVIGATION MENU HIJAU             === */
+    /* ============================================ */
+    .main-nav {
+      background: linear-gradient(135deg, #2e7d32, #388e3c);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 0;
+    }
+
+    .nav-menu li a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 24px;
+      color: #ffffff;
+      font-size: 14px;
       font-weight: 600;
-      font-size: 15px;
+      transition: all 0.3s ease;
+      position: relative;
     }
 
-    .btn-secondary:hover {
-      background-color: #cbd5e1;
+    .nav-menu li a svg {
+      width: 16px;
+      height: 16px;
     }
 
-    .hero-image img {
+    .nav-menu li a:hover {
+      background-color: rgba(0, 0, 0, 0.15);
+    }
+
+    .nav-menu li a.active {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-menu li a.active::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 3px;
+      background-color: #ffeb3b;
+      border-radius: 3px 3px 0 0;
+    }
+
+    /* Hamburger for mobile */
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 1001;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: #ffffff;
+      margin: 5px 0;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* ============================================ */
+    /* === 4. INFO TICKER (Running Text)         === */
+    /* ============================================ */
+    .info-ticker {
+      background-color: #f1f8e9;
+      border-bottom: 1px solid #c8e6c9;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .ticker-inner {
+      display: flex;
+      align-items: center;
+      height: 40px;
+    }
+
+    .ticker-badge {
+      background: linear-gradient(135deg, #e65100, #f57c00);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 6px 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      height: 100%;
+    }
+
+    .ticker-badge svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .ticker-content {
+      flex-grow: 1;
+      overflow: hidden;
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+    }
+
+    .ticker-text {
+      display: inline-block;
+      white-space: nowrap;
+      animation: ticker-scroll 25s linear infinite;
+      font-size: 13px;
+      color: #2e7d32;
+      font-weight: 500;
+    }
+
+    @keyframes ticker-scroll {
+      0% {
+        transform: translateX(100%);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    .ticker-actions {
+      display: flex;
+      gap: 4px;
+      flex-shrink: 0;
+      padding-right: 8px;
+    }
+
+    .ticker-action-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff;
+      border: 1px solid #c8e6c9;
+      color: #2e7d32;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .ticker-action-btn:hover {
+      background-color: #e8f5e9;
+      border-color: #4caf50;
+    }
+
+    /* ============================================ */
+    /* === 5. HERO SECTION (Full-Width + Overlay) === */
+    /* ============================================ */
+    .hero-portal {
+      position: relative;
       width: 100%;
-      border-radius: 24px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-      object-fit: cover;
-      aspect-ratio: 4/3;
+      overflow: hidden;
     }
 
-    /* --- LAYANAN WARGA --- */
+    .hero-portal-grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      max-height: 340px;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      overflow: hidden;
+      max-height: 340px;
+    }
+
+    .hero-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top,
+          rgba(0, 0, 0, 0.75) 0%,
+          rgba(0, 0, 0, 0.3) 40%,
+          rgba(0, 0, 0, 0.1) 70%,
+          transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 32px 5%;
+    }
+
+    .hero-overlay-tag {
+      display: inline-block;
+      background-color: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: #ffffff;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      width: fit-content;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .hero-overlay h2 {
+      font-size: 36px;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.1;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-overlay h2 span {
+      color: #a5d6a7;
+    }
+
+    .hero-overlay p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 6px;
+      max-width: 500px;
+      line-height: 1.5;
+    }
+
+    /* === 6. SIDE PANEL (Right of Hero) === */
+    .hero-side-panel {
+      background-color: #f8faf8;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      overflow-x: hidden;
+      border-left: 1px solid #e0e0e0;
+      max-height: 340px;
+    }
+
+    .side-panel-card {
+      padding: 14px 18px;
+      border-bottom: 1px solid #e8e8e8;
+      display: flex;
+      gap: 12px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+      flex: 1;
+    }
+
+    .side-panel-card:last-child {
+      border-bottom: none;
+    }
+
+    .side-panel-card:hover {
+      background-color: #e8f5e9;
+    }
+
+    .side-card-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 16px;
+    }
+
+    .side-card-icon.green {
+      background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+      color: #2e7d32;
+    }
+
+    .side-card-icon.orange {
+      background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+      color: #e65100;
+    }
+
+    .side-card-icon.blue {
+      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+      color: #1565c0;
+    }
+
+    .side-card-icon.red {
+      background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+      color: #c62828;
+    }
+
+    .side-card-content h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1e293b;
+      line-height: 1.3;
+      margin-bottom: 2px;
+    }
+
+    .side-card-content p {
+      font-size: 11px;
+      color: #78909c;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .side-card-content .side-card-meta {
+      font-size: 11px;
+      color: #a0aec0;
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ============================================ */
+    /* === SECTION: LAYANAN WARGA (Unchanged)    === */
+    /* ============================================ */
     .layanan {
       padding: 100px 0;
       background-color: #f4f9f8;
@@ -228,7 +635,6 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 32px;
-      /* Jarak antar card diperlebar */
     }
 
     .card-layanan-dark {
@@ -307,7 +713,9 @@
       font-size: 16px;
     }
 
-    /* --- KABAR TERKINI & AGENDA --- */
+    /* ============================================ */
+    /* === SECTION: KABAR TERKINI & AGENDA       === */
+    /* ============================================ */
     .kabar-agenda {
       padding: 100px 0;
       background-color: #ffffff;
@@ -381,7 +789,6 @@
     .card-img-wrapper {
       position: relative;
       height: 240px;
-      /* Dipertinggi sedikit mengikuti skala lebar browser */
     }
 
     .card-img-wrapper img {
@@ -446,7 +853,9 @@
       gap: 4px;
     }
 
-    /* --- CALL TO ACTION (CTA) SECTION --- */
+    /* ============================================ */
+    /* === SECTION: CTA                          === */
+    /* ============================================ */
     .cta-section {
       background-color: #004d40;
       color: #ffffff;
@@ -505,7 +914,9 @@
       pointer-events: none;
     }
 
-    /* --- FOOTER --- */
+    /* ============================================ */
+    /* === FOOTER                                === */
+    /* ============================================ */
     footer {
       background-color: #ffffff;
       padding: 40px 0;
@@ -526,17 +937,53 @@
       font-size: 20px;
     }
 
-    /* RESPONSIVE DESIGN FOR TABLETS & PHONES */
+    /* ============================================ */
+    /* === SCROLL ANIMATION                      === */
+    /* ============================================ */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================ */
+    /* === RESPONSIVE DESIGN                     === */
+    /* ============================================ */
     @media (max-width: 1100px) {
       .kabar-grid {
         grid-template-columns: 1fr;
         gap: 40px;
       }
+
+      .hero-portal-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-side-panel {
+        flex-direction: row;
+        flex-wrap: wrap;
+        border-left: none;
+        border-top: 1px solid #e0e0e0;
+      }
+
+      .side-panel-card {
+        flex: 1 1 45%;
+        border-bottom: none;
+        border-right: 1px solid #e8e8e8;
+      }
+
+      .side-panel-card:last-child {
+        border-right: none;
+      }
     }
 
     @media (max-width: 992px) {
 
-      .hero-grid,
       .layanan-grid,
       .cta-grid {
         grid-template-columns: 1fr;
@@ -547,133 +994,337 @@
         margin-top: 20px;
       }
 
-      .hero h1 {
-        font-size: 44px;
-      }
-
       .container {
         padding: 0 24px;
-        /* Kembali ke padding standar jika di layar HP/Tablet */
+      }
+
+      .hero-overlay h2 {
+        font-size: 32px;
+      }
+
+      .header-inner {
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+        text-align: center;
+      }
+
+      .header-brand {
+        justify-content: center;
+      }
+
+      .header-countdown {
+        align-items: center;
       }
     }
 
-      /* --- HAMBURGER MENU --- */
+    @media (max-width: 768px) {
       .hamburger {
-        display: none;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 8px;
-        z-index: 1001;
-      }
-
-      .hamburger span {
         display: block;
-        width: 24px;
-        height: 2px;
-        background-color: #004d40;
-        margin: 5px 0;
-        transition: all 0.3s ease;
       }
 
-      .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
+      .nav-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: #2e7d32;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        z-index: 1000;
       }
 
-      .hamburger.active span:nth-child(2) {
-        opacity: 0;
+      .nav-menu.active {
+        display: flex;
       }
 
-      .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
+      .nav-menu li a {
+        font-size: 20px;
+        padding: 16px 32px;
       }
 
-      /* --- SCROLL ANIMATION --- */
-      .fade-in {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
+      .top-bar-search {
+        display: none;
       }
 
-      .fade-in.visible {
-        opacity: 1;
-        transform: translateY(0);
+      .top-bar-subtitle {
+        display: none;
       }
 
-      @media (max-width: 768px) {
-        .hamburger {
-          display: block;
-        }
-
-        .nav-links {
-          display: none;
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100vh;
-          background-color: #ffffff;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          gap: 32px;
-          z-index: 1000;
-        }
-
-        .nav-links.active {
-          display: flex;
-        }
-
-        .nav-links li {
-          list-style: none;
-        }
-
-        .nav-links a {
-          font-size: 20px;
-        }
+      .top-bar-divider {
+        display: none;
       }
+
+      .countdown-boxes {
+        gap: 4px;
+      }
+
+      .countdown-box {
+        min-width: 48px;
+        padding: 6px 8px;
+      }
+
+      .countdown-box .c-number {
+        font-size: 18px;
+      }
+
+      .hero-portal-grid {
+        grid-template-columns: 1fr;
+        min-height: 300px;
+      }
+
+      .hero-side-panel {
+        flex-direction: column;
+      }
+
+      .side-panel-card {
+        flex: 1 1 auto;
+        border-right: none;
+        border-bottom: 1px solid #e8e8e8;
+      }
+
+      .ticker-actions {
+        display: none;
+      }
+
+      .hero-overlay {
+        padding: 32px 24px;
+      }
+
+      .hero-overlay h2 {
+        font-size: 28px;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="container navbar">
-      <div class="logo">Kabar RT</div>
+
+  <!-- ===== 1. TOP BAR ===== -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-brand">
+        <div class="top-bar-logo">Kabar RT</div>
+        <div class="top-bar-divider"></div>
+        <span class="top-bar-subtitle">Portal Resmi Warga RT 03</span>
+      </div>
+      <div class="top-bar-actions">
+        <div class="top-bar-search">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" placeholder="Cari informasi..." />
+        </div>
+        <a href="#" class="top-bar-icon" title="Notifikasi">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+          </svg>
+        </a>
+        <a href="Profil.html" class="top-bar-icon" title="Profil">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 2. MAIN HEADER ===== -->
+  <div class="main-header">
+    <div class="container header-inner">
+      <div class="header-brand">
+        <div class="header-emblem">RT</div>
+        <div class="header-text">
+          <h1>Kabar RT</h1>
+          <p>Portal Informasi & Layanan Warga RT 03</p>
+        </div>
+      </div>
+      <div class="header-countdown">
+        <span class="countdown-label">Menuju</span>
+        <span class="countdown-event">Hari Kemerdekaan RI ke-81</span>
+        <div class="countdown-boxes">
+          <div class="countdown-box">
+            <span class="c-number" id="cd-days">--</span>
+            <span class="c-label">Hari</span>
+          </div>
+          <div class="countdown-box">
+            <span class="c-number" id="cd-hours">--</span>
+            <span class="c-label">Jam</span>
+          </div>
+          <div class="countdown-box">
+            <span class="c-number" id="cd-minutes">--</span>
+            <span class="c-label">Menit</span>
+          </div>
+          <div class="countdown-box">
+            <span class="c-number" id="cd-seconds">--</span>
+            <span class="c-label">Detik</span>
+          </div>
+        </div>
+        <span class="header-date" id="current-date"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 3. NAVIGATION MENU ===== -->
+  <nav class="main-nav">
+    <div class="container nav-inner">
       <button class="hamburger" aria-label="Menu">
         <span></span>
         <span></span>
         <span></span>
       </button>
-      <ul class="nav-links">
-        <li><a href="#" class="active">Beranda</a></li>
-        <li><a href="layanan_warga.html">Layanan Warga</a></li>
-        <li><a href="Profil.html">Profil</a></li>
-        <li><a href="informasi.html">Informasi</a></li>
-        <li><a href="Kontak.html">Kontak</a></li>
+      <ul class="nav-menu">
+        <li>
+          <a href="#" class="active">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            Beranda
+          </a>
+        </li>
+        <li>
+          <a href="layanan_warga.html">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+            </svg>
+            Layanan Warga
+          </a>
+        </li>
+        <li>
+          <a href="Profil.html">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            Profil
+          </a>
+        </li>
+        <li>
+          <a href="informasi.html">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            Informasi
+          </a>
+        </li>
+        <li>
+          <a href="Kontak.html">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            Kontak
+          </a>
+        </li>
       </ul>
     </div>
-  </header>
+  </nav>
 
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-content">
-        <span class="hero-tag">Kabar RT Digital</span>
-        <h1>Kenyamanan Hidup Bertetangga.</h1>
-        <p>
-          Platform digital untuk mendukung kerukunan dan kemudahan layanan
-          warga dalam satu genggaman tangan.
-        </p>
-        <div class="hero-buttons">
-          <a href="#" class="btn-primary">Jelajahi Fitur</a>
-          <a href="#" class="btn-secondary">Tentang Kami</a>
+  <!-- ===== 4. INFO TICKER ===== -->
+  <div class="info-ticker">
+    <div class="container ticker-inner">
+      <div class="ticker-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+        Info
+      </div>
+      <div class="ticker-content">
+        <span class="ticker-text">
+          Selamat datang di Portal Kabar RT — Sumber informasi resmi, layanan administrasi, dan kegiatan warga RT 03.
+          Tetap terhubung dan saling peduli untuk lingkungan yang lebih harmonis! &nbsp;&nbsp;&nbsp; 📢 Rapat Bulanan &
+          Arisan tanggal 22 — jangan lupa hadir! &nbsp;&nbsp;&nbsp; 🏋️ Gotong Royong Kebersihan setiap Minggu pagi.
+        </span>
+      </div>
+      <div class="ticker-actions">
+        <a href="Profil.html" class="ticker-action-btn" title="Data Warga">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </a>
+        <a href="informasi.html" class="ticker-action-btn" title="Pengumuman">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="8" y1="6" x2="21" y2="6"></line>
+            <line x1="8" y1="12" x2="21" y2="12"></line>
+            <line x1="8" y1="18" x2="21" y2="18"></line>
+            <line x1="3" y1="6" x2="3.01" y2="6"></line>
+            <line x1="3" y1="12" x2="3.01" y2="12"></line>
+            <line x1="3" y1="18" x2="3.01" y2="18"></line>
+          </svg>
+        </a>
+        <a href="Kontak.html" class="ticker-action-btn" title="Kontak">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 5 & 6. HERO + SIDE PANEL ===== -->
+  <section class="hero-portal">
+    <div class="hero-portal-grid">
+      <div class="hero-image-wrapper">
+        <img src="images/Beranda.jpeg" alt="Suasana Lingkungan RT" />
+        <div class="hero-overlay">
+          <span class="hero-overlay-tag">Portal Resmi</span>
+          <h2>Kabar <span>RT</span></h2>
+          <p>Menyatukan warga, membangun lingkungan yang harmonis melalui informasi dan layanan digital.</p>
         </div>
       </div>
-      <div class="hero-image">
-        <img src="Beranda.jpeg" alt="Foto Bersama Warga RT" />
+      <div class="hero-side-panel">
+        <div class="side-panel-card">
+          <div class="side-card-icon green">📋</div>
+          <div class="side-card-content">
+            <h4>Surat Pengantar RT</h4>
+            <p>Ajukan surat pengantar untuk keperluan administrasi kependudukan dengan mudah.</p>
+            <div class="side-card-meta">📎 Layanan Aktif</div>
+          </div>
+        </div>
+        <div class="side-panel-card">
+          <div class="side-card-icon orange">📢</div>
+          <div class="side-card-content">
+            <h4>Rapat Bulanan & Arisan</h4>
+            <p>Koordinasi warga dan arisan rutin tanggal 22 setiap bulan di Balai Warga Utama.</p>
+            <div class="side-card-meta">📅 22 Juni 2026</div>
+          </div>
+        </div>
+        <div class="side-panel-card">
+          <div class="side-card-icon blue">🏗️</div>
+          <div class="side-card-content">
+            <h4>Gotong Royong Kebersihan</h4>
+            <p>Kegiatan bersih-bersih area fasilitas umum RT setiap hari Minggu pagi.</p>
+            <div class="side-card-meta">🕒 07:30 WIB - Selesai</div>
+          </div>
+        </div>
+        <div class="side-panel-card">
+          <div class="side-card-icon red">🚨</div>
+          <div class="side-card-content">
+            <h4>Lapor Masalah Lingkungan</h4>
+            <p>Laporkan gangguan keamanan atau kerusakan infrastruktur secara langsung.</p>
+            <div class="side-card-meta">✅ Tersedia 24 Jam</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- ===== SECTION: LAYANAN WARGA (Unchanged) ===== -->
   <section class="layanan">
     <div class="container">
       <div class="section-header">
@@ -712,6 +1363,7 @@
     </div>
   </section>
 
+  <!-- ===== SECTION: KABAR TERKINI & AGENDA (Unchanged) ===== -->
   <section class="kabar-agenda">
     <div class="container">
       <div class="section-header">
@@ -751,7 +1403,7 @@
         <div class="card-artikel">
           <div class="card-img-wrapper">
             <span class="badge-info">INFO</span>
-            <img src="Gebyar_Agustusan.JPG" alt="Acara Gebyar" />
+            <img src="images/Gebyar_Agustusan.JPG" alt="Acara Gebyar" />
           </div>
           <div class="card-artikel-body">
             <h3>Acara Gebyar 17 Agustus 2025</h3>
@@ -766,7 +1418,7 @@
         <div class="card-artikel">
           <div class="card-img-wrapper">
             <span class="badge-sistem">SISTEM</span>
-            <img src="Estafet_Tepung.jpg" alt="Kegiatan Lomba" />
+            <img src="images/Estafet_Tepung.jpg" alt="Kegiatan Lomba" />
           </div>
           <div class="card-artikel-body">
             <h3>Kegiatan Lomba 17 Agustus</h3>
@@ -781,6 +1433,7 @@
     </div>
   </section>
 
+  <!-- ===== SECTION: CTA (Unchanged) ===== -->
   <section class="cta-section">
     <div class="container cta-grid">
       <div class="cta-content">
@@ -792,7 +1445,7 @@
         </p>
         <div class="stats-wrapper">
           <div class="stat-item">
-            <h3>100+</h3>
+            <h3>120+</h3>
             <p>Warga Aktif</p>
           </div>
           <div class="stat-item">
@@ -810,12 +1463,14 @@
     </div>
   </section>
 
+  <!-- ===== FOOTER (Unchanged) ===== -->
   <footer>
     <div class="container footer-wrapper">
       <div class="footer-logo">Kabar RT</div>
       <div>&copy; 2026 Kabar RT. All rights reserved.</div>
     </div>
   </footer>
+
   <script src="js/main.js"></script>
   <script src="js/beranda.js"></script>
 </body>
