@@ -2,769 +2,371 @@
 <html lang="id">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kabar RT - Layanan Warga</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
-    <style>
-        /* --- RESET & GLOBAL STYLES --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        body {
-            background-color: #f4f7f7;
-            color: #333;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s ease;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 100%;
-            padding: 0 5%;
-            margin: 0 auto;
-        }
-
-        /* --- NAVBAR --- */
-        header {
-            background-color: #ffffff;
-            padding: 24px 0;
-            border-bottom: 1px solid #f1f5f9;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 800;
-            color: #004d40;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 40px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-size: 15px;
-            font-weight: 600;
-            /* Menggunakan 600 agar transisi ke hover tidak membuat teks melompat */
-            color: #64748b;
-            position: relative;
-            padding-bottom: 6px;
-        }
-
-        /* Membuat Garis Bawah Menggunakan Pseudo-Element (Default: Lebar 0%) */
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #004d40;
-            transition: width 0.3s ease;
-            /* Membuat efek garis memanjang yang halus */
-        }
-
-        /* Efek Ketika di-Hover */
-        .nav-links a:hover {
-            color: #004d40;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-            /* Garis memanjang penuh saat di-hover */
-        }
-
-        /* Style Khusus untuk Halaman yang Sedang Aktif */
-        .nav-links a.active {
-            color: #004d40;
-            font-weight: 700;
-        }
-
-        .nav-links a.active::after {
-            width: 100%;
-            /* Garis bawah tetap muncul penuh di halaman aktif */
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            padding: 80px 0 60px 0;
-            background-color: #ffffff;
-        }
-
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .hero-tag {
-            display: inline-block;
-            color: #00796b;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 16px;
-        }
-
-        .hero h1 {
-            font-size: 56px;
-            font-weight: 800;
-            color: #004d40;
-            line-height: 1.15;
-            margin-bottom: 24px;
-        }
-
-        .hero h1 span {
-            color: #1e40af;
-            /* Warna biru pada kata "Digital" */
-        }
-
-        .hero p {
-            font-size: 18px;
-            line-height: 1.6;
-            color: #64748b;
-            max-width: 550px;
-        }
-
-        /* --- SECTION MAIN STYLE --- */
-        .main-section {
-            padding: 60px 0;
-        }
-
-        .section-title {
-            margin-bottom: 32px;
-        }
-
-        .section-title h2 {
-            font-size: 28px;
-            font-weight: 700;
-            color: #004d40;
-            margin-bottom: 6px;
-        }
-
-        .section-title p {
-            font-size: 15px;
-            color: #64748b;
-        }
-
-        /* --- ADMINISTRASI GRID --- */
-        .admin-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-        }
-
-        .card-admin {
-            background-color: #edf2f1;
-            border-radius: 16px;
-            padding: 32px;
-            display: flex;
-            gap: 24px;
-            align-items: flex-start;
-        }
-
-        .icon-box {
-            background-color: #cbdad8;
-            color: #004d40;
-            padding: 14px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .card-admin-content h3 {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 8px;
-        }
-
-        .card-admin-content p {
-            font-size: 14px;
-            color: #64748b;
-            line-height: 1.5;
-            margin-bottom: 16px;
-            max-width: 420px;
-        }
-
-        .card-action-link {
-            font-size: 14px;
-            font-weight: 700;
-            color: #004d40;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        /* --- FORMULIR DIGITAL --- */
-        .formulir-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 32px;
-        }
-
-        .filter-badges {
-            display: flex;
-            gap: 8px;
-            margin-top: 8px;
-        }
-
-        .badge {
-            font-size: 11px;
-            font-weight: 700;
-            padding: 6px 14px;
-            border-radius: 20px;
-            text-transform: uppercase;
-        }
-
-        .badge-blue {
-            background-color: #1e40af;
-            color: #ffffff;
-        }
-
-        .badge-gray {
-            background-color: #e2e8f0;
-            color: #64748b;
-        }
-
-        .formulir-grid {
-            display: grid;
-            grid-template-columns: 1.22fr 0.89fr 0.89fr;
-            gap: 24px;
-        }
-
-        /* Card Utama Pendataan */
-        .card-formulir-main {
-            background-color: #ffffff;
-            border-radius: 16px;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 400px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
-        }
-
-        .icon-box-cyan {
-            background-color: #e0f2f1;
-            color: #00796b;
-            width: 48px;
-            height: 48px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 24px;
-        }
-
-        .card-formulir-main h3 {
-            font-size: 24px;
-            font-weight: 700;
-            color: #004d40;
-            line-height: 1.3;
-            margin-bottom: 16px;
-        }
-
-        .card-formulir-main p {
-            font-size: 14px;
-            color: #64748b;
-            line-height: 1.6;
-            max-width: 400px;
-        }
-
-        .card-main-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 40px;
-        }
-
-        .avatar-group {
-            display: flex;
-            align-items: center;
-        }
-
-        .avatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            border: 2px solid #ffffff;
-            object-fit: cover;
-            margin-right: -8px;
-        }
-
-        .avatar-count {
-            background-color: #004d40;
-            color: #ffffff;
-            font-size: 11px;
-            font-weight: 600;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            border: 2px solid #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 0;
-        }
-
-        .btn-cyan {
-            background-color: #004d40;
-            color: #ffffff;
-            font-size: 14px;
-            font-weight: 600;
-            padding: 12px 24px;
-            border-radius: 20px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        /* Card File Kecil */
-        .card-formulir-sub {
-            background-color: #e2e8f0;
-            border-radius: 16px;
-            padding: 32px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 400px;
-        }
-
-        .icon-sub {
-            color: #1e40af;
-        }
-
-        .card-sub-info h4 {
-            font-size: 16px;
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 4px;
-        }
-
-        .card-sub-info p {
-            font-size: 12px;
-            color: #64748b;
-        }
-
-        /* --- CTA SECTION (BUTUH LAYANAN LAINNYA) --- */
-        .cta-box {
-            background-color: #004d40;
-            color: #ffffff;
-            border-radius: 24px;
-            padding: 64px 32px;
-            text-align: center;
-            margin: 40px 0 80px 0;
-        }
-
-        .cta-box h2 {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        .cta-box p {
-            color: #a3cbd2;
-            font-size: 15px;
-            max-width: 600px;
-            margin: 0 auto 40px auto;
-            line-height: 1.6;
-        }
-
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-        }
-
-        .btn-cta-white {
-            background-color: #ffffff;
-            color: #004d40;
-            padding: 14px 28px;
-            border-radius: 24px;
-            font-weight: 600;
-            font-size: 15px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
-
-        .btn-cta-outline {
-            background-color: transparent;
-            color: #ffffff;
-            border: 1px solid #ffffff;
-            padding: 14px 28px;
-            border-radius: 24px;
-            font-weight: 600;
-            font-size: 15px;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            background-color: #ffffff;
-            padding: 40px 0;
-            border-top: 1px solid #e2e8f0;
-            color: #64748b;
-            font-size: 15px;
-        }
-
-        .footer-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .footer-logo {
-            font-weight: 800;
-            color: #004d40;
-            font-size: 20px;
-        }
-
-        /* RESPONSIVE DESIGN */
-        @media (max-width: 1024px) {
-            .formulir-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .card-formulir-main,
-            .card-formulir-sub {
-                min-height: auto;
-            }
-
-            .card-sub-info {
-                margin-top: 40px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .admin-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero h1 {
-                font-size: 40px;
-            }
-
-            .formulir-header {
-                flex-direction: column;
-                gap: 16px;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-
-        /* --- HAMBURGER MENU --- */
-        .hamburger {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-            z-index: 1001;
-        }
-
-        .hamburger span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background-color: #004d40;
-            margin: 5px 0;
-            transition: all 0.3s ease;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-
-        /* --- SCROLL ANIMATION --- */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100vh;
-                background-color: #ffffff;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 32px;
-                z-index: 1000;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links li {
-                list-style: none;
-            }
-
-            .nav-links a {
-                font-size: 20px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Layanan Digital - Kabar RT Portal</title>
+  <meta name="description" content="Pusat layanan digital warga RT 03. Kelola administrasi kependudukan dan akses dokumen penting." />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/shared.css" />
+  <link rel="stylesheet" href="css/layanan.css" />
 </head>
 
 <body>
+  <!-- Top App Bar -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="beranda.html" class="logo">
+        <div class="logo-icon">
+          <span class="material-symbols-outlined">home_pin</span>
+        </div>
+        Kabar RT Portal
+      </a>
+      <button class="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="beranda.html">Beranda</a></li>
+        <li><a href="layanan_warga.html" class="active">Layanan Warga</a></li>
+        <li><a href="Profil.html">Profil</a></li>
+        <li><a href="informasi.html">Informasi</a></li>
+        <li><a href="Kontak.html">Kontak</a></li>
+      </ul>
+    </div>
+  </header>
 
-    <header>
-        <div class="container navbar">
-            <div class="logo">Kabar RT</div>
-            <button class="hamburger" aria-label="Menu">
-              <span></span>
-              <span></span>
-              <span></span>
+  <!-- Hero Header -->
+  <section class="layanan-hero">
+    <div class="radial-bg"></div>
+    <div class="container">
+      <div class="layanan-hero-content">
+        <p class="subtitle">Pelayanan Terpadu</p>
+        <h1>Pusat Layanan <span>Digital Warga</span></h1>
+        <p>Kelola administrasi kependudukan dan akses dokumen penting langsung dari perangkat Anda. Cepat, transparan, dan tanpa antrean.</p>
+      </div>
+    </div>
+  </section>
+
+  <main class="container" style="padding-top: 64px; padding-bottom: 64px;">
+    <!-- Service Cards Grid -->
+    <section class="layanan-section">
+      <div class="layanan-section-header">
+        <h2>Layanan Administrasi</h2>
+        <p>Pilih kategori layanan kependudukan yang Anda butuhkan.</p>
+      </div>
+      <div class="layanan-grid">
+        <!-- KTP/KK -->
+        <div class="layanan-card card-lift">
+          <div class="layanan-card-top">
+            <div class="layanan-card-icon primary">
+              <span class="material-symbols-outlined">badge</span>
+            </div>
+            <span class="layanan-card-badge primary">Administrasi</span>
+          </div>
+          <h3>Pengurusan KTP / KK</h3>
+          <div class="layanan-card-features">
+            <div class="layanan-feature">
+              <span class="material-symbols-outlined primary">check_circle</span>
+              <span>Pembuatan baru atau perpanjangan KTP</span>
+            </div>
+            <div class="layanan-feature">
+              <span class="material-symbols-outlined primary">check_circle</span>
+              <span>Pembaruan data Kartu Keluarga</span>
+            </div>
+          </div>
+          <button class="btn-primary-solid" style="width: 100%;" onclick="scrollToForm('KTP/KK')">
+            Ajukan Sekarang <span class="material-symbols-outlined">arrow_forward</span>
+          </button>
+        </div>
+
+        <!-- Domisili -->
+        <div class="layanan-card card-lift">
+          <div class="layanan-card-top">
+            <div class="layanan-card-icon secondary">
+              <span class="material-symbols-outlined">home_pin</span>
+            </div>
+            <span class="layanan-card-badge secondary">Keterangan</span>
+          </div>
+          <h3>Keterangan Domisili</h3>
+          <div class="layanan-card-features">
+            <div class="layanan-feature">
+              <span class="material-symbols-outlined secondary">check_circle</span>
+              <span>Surat keterangan tempat tinggal resmi</span>
+            </div>
+            <div class="layanan-feature">
+              <span class="material-symbols-outlined secondary">check_circle</span>
+              <span>Keperluan administrasi bank/pekerjaan</span>
+            </div>
+          </div>
+          <button class="btn-primary-solid" style="width: 100%;" onclick="scrollToForm('Domisili')">
+            Ajukan Sekarang <span class="material-symbols-outlined">arrow_forward</span>
+          </button>
+        </div>
+
+        <!-- Nikah -->
+        <div class="layanan-card card-lift">
+          <div class="layanan-card-top">
+            <div class="layanan-card-icon tertiary">
+              <span class="material-symbols-outlined">favorite</span>
+            </div>
+            <span class="layanan-card-badge tertiary">Peristiwa</span>
+          </div>
+          <h3>Pengantar Nikah (NA)</h3>
+          <div class="layanan-card-features">
+            <div class="layanan-feature">
+              <span class="material-symbols-outlined tertiary">check_circle</span>
+              <span>Kelengkapan berkas pendaftaran KUA</span>
+            </div>
+            <div class="layanan-feature">
+              <span class="material-symbols-outlined tertiary">check_circle</span>
+              <span>Validasi status kependudukan</span>
+            </div>
+          </div>
+          <button class="btn-primary-solid" style="width: 100%;" onclick="scrollToForm('Nikah')">
+            Ajukan Sekarang <span class="material-symbols-outlined">arrow_forward</span>
+          </button>
+        </div>
+
+        <!-- Kelahiran/Kematian -->
+        <div class="layanan-card card-lift">
+          <div class="layanan-card-top">
+            <div class="layanan-card-icon surface">
+              <span class="material-symbols-outlined">family_restroom</span>
+            </div>
+            <span class="layanan-card-badge primary">Pencatatan</span>
+          </div>
+          <h3>Kelahiran &amp; Kematian</h3>
+          <div class="layanan-card-features">
+            <div class="layanan-feature">
+              <span class="material-symbols-outlined primary">check_circle</span>
+              <span>Pelaporan peristiwa kependudukan</span>
+            </div>
+            <div class="layanan-feature">
+              <span class="material-symbols-outlined primary">check_circle</span>
+              <span>Pembaruan otomatis database RT</span>
+            </div>
+          </div>
+          <button class="btn-primary-solid" style="width: 100%;" onclick="scrollToForm('Kelahiran/Kematian')">
+            Ajukan Sekarang <span class="material-symbols-outlined">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Digital Form Section -->
+    <section class="formulir-section">
+      <div class="formulir-header">
+        <div>
+          <h2>Formulir Digital</h2>
+          <p>Unduh dokumen atau isi formulir secara daring.</p>
+        </div>
+        <div class="formulir-badges">
+          <span class="formulir-badge primary">Terbaru</span>
+          <span class="formulir-badge surface">PDF Ready</span>
+        </div>
+      </div>
+      <div class="formulir-grid">
+        <!-- Pendataan Warga -->
+        <div class="formulir-card card-lift">
+          <div class="formulir-card-icon tinted">
+            <span class="material-symbols-outlined">edit_note</span>
+          </div>
+          <h3>Pendataan Warga Baru &amp; Tamu Menginap</h3>
+          <p>Formulir wajib bagi penghuni baru atau tamu yang menginap lebih dari 1x24 jam.</p>
+          <div class="formulir-card-bottom">
+            <div class="formulir-avatars">
+              <div class="formulir-avatar placeholder"></div>
+              <div class="formulir-avatar count">12+</div>
+            </div>
+            <button class="btn-primary-solid" style="padding: 8px 16px; font-size: 12px; border-radius: var(--radius-sm);">
+              Isi Online <span class="material-symbols-outlined" style="font-size: 14px;">open_in_new</span>
             </button>
-            <ul class="nav-links">
-                <li><a href="beranda.html">Beranda</a></li>
-                <li><a href="#" class="active">Layanan Warga</a></li>
-                <li><a href="Profil.html">Profil</a></li>
-                <li><a href="informasi.html">Informasi</a></li>
-                <li><a href="Kontak.html">Kontak</a></li>
-            </ul>
+          </div>
         </div>
-    </header>
 
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <span class="hero-tag">Pelayanan Terpadu</span>
-                <h1>Layanan Warga <span>Digital.</span></h1>
-                <p>Kelola administrasi kependudukan dan akses dokumen penting langsung dari perangkat Anda. Cepat,
-                    transparan, dan tanpa antrean.</p>
-            </div>
+        <!-- Blangko Izin -->
+        <div class="formulir-card alt card-lift">
+          <div class="formulir-card-icon bordered">
+            <span class="material-symbols-outlined">picture_as_pdf</span>
+          </div>
+          <div style="margin-top: auto;">
+            <h3>Blangko Izin Keramaian</h3>
+            <p class="file-meta">Unduh PDF (1.2 MB)</p>
+            <button class="download-link">Unduh Sekarang <span class="material-symbols-outlined">download</span></button>
+          </div>
         </div>
+
+        <!-- Form Aspirasi -->
+        <div class="formulir-card alt card-lift">
+          <div class="formulir-card-icon bordered">
+            <span class="material-symbols-outlined">upload_file</span>
+          </div>
+          <div style="margin-top: auto;">
+            <h3>Form Aspirasi Warga</h3>
+            <p class="file-meta">DOCX Template</p>
+            <button class="download-link">Unduh Sekarang <span class="material-symbols-outlined">download</span></button>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="main-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Administrasi</h2>
-                <p>Panduan dan bantuan pengurusan berkas kependudukan.</p>
-            </div>
-
-            <div class="admin-grid">
-                <div class="card-admin">
-                    <div class="icon-box">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                            <line x1="16" y1="13" x2="8" y2="13"></line>
-                            <line x1="16" y1="17" x2="8" y2="17"></line>
-                        </svg>
-                    </div>
-                    <div class="card-admin-content">
-                        <h3>Surat Pengantar RT/RW</h3>
-                        <p>Pembuatan surat pengantar untuk keperluan menikah, domisili, atau SKCK.</p>
-                        <a href="#" class="card-action-link">Ajukan Sekarang ➔</a>
-                    </div>
-                </div>
-
-                <div class="card-admin">
-                    <div class="icon-box">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
-                    </div>
-                    <div class="card-admin-content">
-                        <h3>Bantuan KTP & KK</h3>
-                        <p>Panduan pembaharuan data Kartu Keluarga atau penggantian KTP rusak/hilang.</p>
-                        <a href="#" class="card-action-link">Lihat Prosedur ➔</a>
-                    </div>
-                </div>
-
-                <div class="card-admin">
-                    <div class="icon-box">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-                            <line x1="9" y1="9" x2="9.01" y2="9"></line>
-                            <line x1="15" y1="9" x2="15.01" y2="9"></line>
-                        </svg>
-                    </div>
-                    <div class="card-admin-content">
-                        <h3>Akta Kelahiran</h3>
-                        <p>Pengurusan dokumen pendukung untuk permohonan akta kelahiran baru.</p>
-                        <a href="#" class="card-action-link">Pelajari Detail ➔</a>
-                    </div>
-                </div>
-
-                <div class="card-admin">
-                    <div class="icon-box">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                        </svg>
-                    </div>
-                    <div class="card-admin-content">
-                        <h3>Keterangan Domisili</h3>
-                        <p>Validasi tempat tinggal untuk warga kontrak atau pendatang baru di wilayah RT.</p>
-                        <a href="#" class="card-action-link">Mulai Validasi ➔</a>
-                    </div>
-                </div>
-            </div>
+    <!-- Digital Application Form -->
+    <section class="application-form-wrapper" id="application-form">
+      <div class="form-header">
+        <div class="form-header-top">
+          <div class="form-header-icon">
+            <span class="material-symbols-outlined">description</span>
+          </div>
+          <h2>Formulir Pengajuan Digital</h2>
         </div>
+        <p>Silakan lengkapi data di bawah ini untuk memproses berkas Anda secara sistem.</p>
+      </div>
+      <form class="application-form" id="layananForm" novalidate>
+        <div class="form-row">
+          <!-- Nama -->
+          <div class="form-group">
+            <label class="form-label">Nama Lengkap Sesuai KTP</label>
+            <input class="form-input" name="nama" placeholder="Contoh: Budi Santoso" required type="text" />
+            <span class="error-message">Nama wajib diisi sesuai identitas.</span>
+          </div>
+          <!-- NIK -->
+          <div class="form-group">
+            <label class="form-label">NIK (16 Digit)</label>
+            <input class="form-input" name="nik" pattern="\d{16}" placeholder="3201xxxxxxxxxxxx" required type="text" />
+            <span class="error-message">NIK harus berisi 16 digit angka yang valid.</span>
+          </div>
+          <!-- No KK -->
+          <div class="form-group">
+            <label class="form-label">Nomor Kartu Keluarga</label>
+            <input class="form-input" name="kk" pattern="\d{16}" placeholder="3201xxxxxxxxxxxx" required type="text" />
+            <span class="error-message">Nomor KK harus berisi 16 digit angka.</span>
+          </div>
+          <!-- Jenis Surat -->
+          <div class="form-group">
+            <label class="form-label">Jenis Surat</label>
+            <div class="form-select-wrapper">
+              <select id="serviceSelect" name="jenis_surat" required>
+                <option disabled selected value="">Pilih Layanan</option>
+                <option value="KTP/KK">Pengurusan KTP / KK</option>
+                <option value="Domisili">Keterangan Domisili</option>
+                <option value="Nikah">Pengantar Nikah (NA)</option>
+                <option value="Kelahiran/Kematian">Kelahiran &amp; Kematian</option>
+              </select>
+              <span class="material-symbols-outlined">expand_more</span>
+            </div>
+            <span class="error-message">Pilih kategori layanan yang sesuai.</span>
+          </div>
+        </div>
+        <!-- Alasan -->
+        <div class="form-group">
+          <label class="form-label">Alasan Pengajuan</label>
+          <textarea class="form-textarea" name="alasan" placeholder="Tuliskan alasan atau keperluan Anda secara singkat dan jelas..." required rows="4"></textarea>
+          <span class="error-message">Mohon jelaskan keperluan pengajuan Anda.</span>
+        </div>
+        <!-- File Upload -->
+        <div class="form-group">
+          <label class="form-label">Lampiran Berkas (PDF/JPG, Max 2MB)</label>
+          <div class="file-upload-zone">
+            <input type="file" required />
+            <span class="material-symbols-outlined">cloud_upload</span>
+            <p class="upload-title">Klik untuk unggah atau seret file ke sini</p>
+            <p class="upload-hint">Scan KK atau KTP sebagai pendukung awal berkas Anda.</p>
+          </div>
+        </div>
+        <!-- Submit -->
+        <div class="form-submit-row">
+          <button class="btn-primary-solid" type="submit" style="padding: 16px 48px; border-radius: var(--radius-xl); box-shadow: var(--shadow-xl);">
+            Kirim Pengajuan Berkas
+          </button>
+          <div class="form-security">
+            <span class="material-symbols-outlined">verified_user</span>
+            <span>Koneksi Aman &amp; Terenkripsi</span>
+          </div>
+        </div>
+      </form>
     </section>
 
-    <section class="main-section">
-        <div class="container">
-            <div class="formulir-header">
-                <div class="section-title">
-                    <h2>Formulir Digital</h2>
-                    <p>Unduh dokumen atau isi formulir secara daring.</p>
-                </div>
-                <div class="filter-badges">
-                    <span class="badge badge-blue">Terbaru</span>
-                    <span class="badge badge-gray">PDF Ready</span>
-                </div>
-            </div>
-
-            <div class="formulir-grid">
-                <div class="card-formulir-main">
-                    <div>
-                        <div class="icon-box-cyan">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                            </svg>
-                        </div>
-                        <h3>Pendataan Warga Baru & Tamu Menginap</h3>
-                        <p>Formulir wajib bagi penghuni baru atau tamu yang menginap lebih dari 1x24 jam untuk
-                            pemutakhiran database keamanan lingkungan.</p>
-                    </div>
-                    <div class="card-main-footer">
-                        <div class="avatar-group">
-                            <img class="avatar" src="https://via.placeholder.com/150" alt="Warga">
-                            <img class="avatar" src="https://via.placeholder.com/150" alt="Warga">
-                            <div class="avatar-count">12+</div>
-                        </div>
-                        <a href="#" class="btn-cyan">Isi Online <svg width="14" height="14" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                <polyline points="15 3 21 3 21 9"></polyline>
-                                <line x1="10" y1="14" x2="21" y2="3"></line>
-                            </svg></a>
-                    </div>
-                </div>
-
-                <div class="card-formulir-sub">
-                    <div class="icon-sub">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                            <path d="M12 18v-6"></path>
-                            <path d="M9 15l3-3 3 3"></path>
-                        </svg>
-                    </div>
-                    <div class="card-sub-info">
-                        <h4>Blangko Izin Keramaian</h4>
-                        <p>Unduh PDF (1.2 MB)</p>
-                    </div>
-                </div>
-
-                <div class="card-formulir-sub">
-                    <div class="icon-sub">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="17 8 12 3 7 8"></polyline>
-                            <line x1="12" y1="3" x2="12" y2="15"></line>
-                        </svg>
-                    </div>
-                    <div class="card-sub-info">
-                        <h4>Form Aspirasi Warga</h4>
-                        <p>DOCX Template</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cta-box">
-                <h2>Butuh Layanan Lainnya?</h2>
-                <p>Jika Anda tidak menemukan layanan yang dicari, silakan hubungi pengurus RT melalui kanal komunikasi
-                    resmi kami.</p>
-                <div class="cta-buttons">
-                    <a href="#" class="btn-cta-white">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                        </svg>
-                        Chat Pengurus
-                    </a>
-                    <a href="#" class="btn-cta-outline">Lihat Kontak Lengkap</a>
-                </div>
-            </div>
+    <!-- CTA Section -->
+    <section class="layanan-cta">
+      <div class="glow"></div>
+      <div class="layanan-cta-content">
+        <h2>Belum Menemukan Layanan Anda?</h2>
+        <p>Jangan ragu untuk menghubungi pengurus RT atau tim bantuan kami jika Anda memiliki kebutuhan khusus di luar daftar layanan digital.</p>
+        <div class="layanan-cta-buttons">
+          <a href="Kontak.html" class="btn-cta-white">
+            <span class="material-symbols-outlined">chat</span>
+            Chat Pengurus RT
+          </a>
+          <a href="Kontak.html" class="btn-cta-outline">
+            Lihat Kontak Lengkap
+          </a>
         </div>
+      </div>
     </section>
+  </main>
 
-    <footer>
-        <div class="container footer-wrapper">
-            <div class="footer-logo">Kabar RT</div>
-            <div>&copy; 2026 Kabar RT. All rights reserved.</div>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <span>Kabar RT Portal</span>
+        <p>Menghubungkan warga dengan sistem digital yang transparan, modern, dan memudahkan koordinasi lingkungan.</p>
+        <div class="footer-social">
+          <a href="#"><span class="material-symbols-outlined">public</span></a>
+          <a href="#"><span class="material-symbols-outlined">chat</span></a>
         </div>
-    </footer>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="beranda.html">Beranda</a></li>
+          <li><a href="Profil.html">Tentang Kami</a></li>
+          <li><a href="Kontak.html">Kontak Pengurus</a></li>
+          <li><a href="informasi.html">Informasi</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Informasi</h4>
+        <ul>
+          <li><a href="#">Kebijakan Privasi</a></li>
+          <li><a href="Kontak.html">Bantuan Layanan</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Darurat</h4>
+        <div style="padding: 24px; background-color: var(--error-container); border-radius: var(--radius-xl); border: 1px solid rgba(239,68,68,0.1);">
+          <p style="color: var(--on-error-container); font-weight: 700; font-size: 18px; display: flex; align-items: center; gap: 12px;">
+            <span class="material-symbols-outlined">call</span>
+            0812-3456-7890
+          </p>
+          <p style="font-size: 11px; color: var(--on-error-container); opacity: 0.8; margin-top: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+            Layanan Posko Keamanan 24 Jam
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2024 Kabar RT Portal. Profesional, Andal, dan Guyub.</p>
+      <div class="footer-status">
+        <span class="dot"></span>
+        <span>System Operational</span>
+      </div>
+    </div>
+  </footer>
 
-    <script src="js/main.js"></script>
+  <!-- WhatsApp FAB -->
+  <a class="fab-whatsapp" href="https://wa.me/6281234567890" target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg>
+  </a>
+
+  <script src="js/main.js"></script>
+  <script src="js/layanan.js"></script>
 </body>
 
 </html>

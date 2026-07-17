@@ -1,32 +1,3 @@
-// ===== COUNTDOWN TIMER KE 17 AGUSTUS 2026 =====
-function updateCountdown() {
-  const targetDate = new Date('2026-08-17T00:00:00+07:00');
-  const now = new Date();
-  const diff = targetDate - now;
-
-  if (diff <= 0) {
-    document.getElementById('cd-days').textContent = '0';
-    document.getElementById('cd-hours').textContent = '0';
-    document.getElementById('cd-minutes').textContent = '0';
-    document.getElementById('cd-seconds').textContent = '0';
-    return;
-  }
-
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-  document.getElementById('cd-days').textContent = days;
-  document.getElementById('cd-hours').textContent = hours;
-  document.getElementById('cd-minutes').textContent = minutes;
-  document.getElementById('cd-seconds').textContent = seconds;
-}
-
-// Jalankan segera dan update setiap detik
-updateCountdown();
-setInterval(updateCountdown, 1000);
-
 // ===== TANGGAL HARI INI =====
 function updateCurrentDate() {
   const now = new Date();
@@ -46,6 +17,41 @@ function updateCurrentDate() {
 }
 
 updateCurrentDate();
+setInterval(updateCurrentDate, 60000); // update tiap 1 menit
+
+// ===== COUNTDOWN TIMER KE 17 AGUSTUS =====
+function updateCountdown() {
+  const now = new Date();
+  // Target: 17 Agustus tahun ini atau tahun depan
+  let targetYear = now.getFullYear();
+  let target = new Date(targetYear, 7, 17); // Agustus = index 7
+  if (now > target) {
+    targetYear += 1;
+    target = new Date(targetYear, 7, 17);
+  }
+
+  const keN = targetYear - 1945; // Kemerdekaan RI ke-N
+  const diff = target - now;
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+  const pad = (n) => String(n).padStart(2, '0');
+
+  const el = document.getElementById('countdown-text');
+  if (el) {
+    if (diff <= 0) {
+      el.textContent = `🇮🇩 Selamat Hari Kemerdekaan RI ke-${keN}! 🇮🇩`;
+    } else {
+      el.textContent = `Countdown Hari Kemerdekaan RI ke-${keN}: ${days} Hari ${pad(hours)}:${pad(mins)}:${pad(secs)}`;
+    }
+  }
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
 
 // ===== COUNTER ANIMATION (CTA STATS) =====
 function animateCounter(el, target, suffix) {

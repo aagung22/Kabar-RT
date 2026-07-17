@@ -1,50 +1,41 @@
-// ===== TOAST NOTIFICATION =====
-function showToast(message, type) {
-  const existing = document.querySelector('.toast');
-  if (existing) existing.remove();
+// ===== KONTAK PAGE — Form Interactivity =====
+document.addEventListener('DOMContentLoaded', () => {
+  const anonCheckbox = document.getElementById('anonymousCheck');
+  const nameInput = document.getElementById('nameInput');
+  const houseNo = document.getElementById('houseNo');
+  const form = document.getElementById('aspirationForm');
 
-  const toast = document.createElement('div');
-  toast.className = 'toast ' + type;
-  toast.textContent = message;
-  document.body.appendChild(toast);
+  if (anonCheckbox && nameInput && houseNo) {
+    anonCheckbox.addEventListener('change', (e) => {
+      const isAnon = e.target.checked;
+      nameInput.disabled = isAnon;
+      houseNo.disabled = isAnon;
 
-  setTimeout(() => {
-    toast.style.animation = 'slideOut 0.4s ease forwards';
-    setTimeout(() => toast.remove(), 400);
-  }, 2600);
-}
-
-// ===== FORM VALIDATION =====
-const form = document.querySelector('form');
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-
-  const inputs = form.querySelectorAll('input[type="text"]');
-  const nama = inputs[0].value.trim();
-  const hp = inputs[1].value.trim();
-  const pesan = form.querySelector('textarea').value.trim();
-
-  if (!nama) {
-    showToast('Mohon isi nama lengkap Anda.', 'error');
-    inputs[0].focus();
-    return;
-  }
-  if (!hp) {
-    showToast('Mohon isi nomor HP Anda.', 'error');
-    inputs[1].focus();
-    return;
-  }
-  if (!/^[0-9]{10,15}$/.test(hp)) {
-    showToast('Format nomor HP tidak valid. Gunakan angka saja (10-15 digit).', 'error');
-    inputs[1].focus();
-    return;
-  }
-  if (!pesan) {
-    showToast('Mohon isi pesan atau aduan Anda.', 'error');
-    form.querySelector('textarea').focus();
-    return;
+      if (isAnon) {
+        nameInput.value = 'Anonim';
+        houseNo.value = '-';
+        nameInput.classList.add('disabled');
+        houseNo.classList.add('disabled');
+      } else {
+        nameInput.value = '';
+        houseNo.value = '';
+        nameInput.classList.remove('disabled');
+        houseNo.classList.remove('disabled');
+      }
+    });
   }
 
-  showToast('Pesan Anda berhasil dikirim! Pengurus RT akan segera menghubungi.', 'success');
-  form.reset();
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Terima kasih! Aspirasi Anda telah terkirim dan akan segera diproses oleh pengurus.');
+      form.reset();
+      if (nameInput && houseNo) {
+        nameInput.disabled = false;
+        houseNo.disabled = false;
+        nameInput.classList.remove('disabled');
+        houseNo.classList.remove('disabled');
+      }
+    });
+  }
 });

@@ -1,489 +1,313 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Profil - Kabar RT</title>
-
-  <!-- GOOGLE FONT -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet" />
-
-  <style>
-    /* RESET */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Plus Jakarta Sans", sans-serif;
-    }
-
-    /* BODY */
-    body {
-      background-color: #f4f7f7;
-      color: #333;
-    }
-
-    /* --- HEADER & NAVBAR DISESUAIKAN DENGAN BERANDA --- */
-    header {
-      background-color: #ffffff;
-      padding: 24px 5%;
-      border-bottom: 1px solid #f1f5f9;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    /* LOGO */
-    #logo {
-      font-size: 24px;
-      font-weight: 800;
-      color: #005f5f;
-    }
-
-    /* NAVBAR */
-    nav {
-      display: flex;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #64748b;
-      font-size: 15px;
-      font-weight: 600;
-      position: relative;
-      padding-bottom: 6px;
-      transition: color 0.3s ease;
-    }
-
-    /* Membuat Garis Bawah Menggunakan Pseudo-Element */
-    nav a::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: #005f5f;
-      transition: width 0.3s ease;
-    }
-
-    /* HOVER NAVBAR */
-    nav a:hover {
-      color: #005f5f;
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    /* ACTIVE MENU */
-    nav a.active {
-      color: #005f5f;
-      font-weight: 700;
-    }
-
-    nav a.active::after {
-      width: 100%;
-    }
-
-    /* --- AKHIR PERUBAHAN NAVBAR --- */
-
-    /* HERO */
-    .hero {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 40px;
-      padding: 60px 5%;
-    }
-
-    /* HERO TEXT */
-    .hero-text {
-      flex: 1;
-      min-width: 300px;
-    }
-
-    .hero-text span {
-      color: #005f5f;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .hero-text h1 {
-      font-size: 60px;
-      line-height: 1.1;
-      color: #005f5f;
-      margin-top: 15px;
-      margin-bottom: 20px;
-    }
-
-    .hero-text p {
-      line-height: 1.8;
-      color: #666;
-      max-width: 600px;
-    }
-
-    /* HERO IMAGE */
-    .hero-image {
-      flex: 1;
-      min-width: 300px;
-      position: relative;
-    }
-
-    .hero-image img {
-      width: 100%;
-      border-radius: 20px;
-      display: block;
-    }
-
-    /* BADGE */
-    .badge {
-      position: absolute;
-      bottom: 15px;
-      left: 15px;
-      background-color: #005f5f;
-      color: white;
-      padding: 15px 20px;
-      border-radius: 15px;
-    }
-
-    /* VISI MISI */
-    .visi-misi {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      padding: 0 5% 60px;
-    }
-
-    /* CARD */
-    .card {
-      flex: 1;
-      min-width: 300px;
-      background-color: white;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    }
-
-    .card h3 {
-      color: #005f5f;
-      margin-bottom: 20px;
-    }
-
-    .card p,
-    .card li {
-      line-height: 1.8;
-      color: #555;
-    }
-
-    .card ul {
-      padding-left: 20px;
-    }
-
-    /* PENGURUS */
-    .pengurus-section {
-      padding: 0 5% 60px;
-      text-align: center;
-    }
-
-    .pengurus-section h2 {
-      color: #005f5f;
-      margin-bottom: 10px;
-    }
-
-    .pengurus-section p {
-      color: #666;
-      margin-bottom: 40px;
-    }
-
-    /* CONTAINER PENGURUS */
-    .pengurus-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    /* CARD PENGURUS */
-    .pengurus-card {
-      background-color: white;
-      width: 220px;
-      padding: 25px;
-      border-radius: 20px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-      transition: 0.3s;
-    }
-
-    .pengurus-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .pengurus-card img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 15px;
-    }
-
-    .pengurus-card h4 {
-      margin-bottom: 5px;
-    }
-
-    .pengurus-card small {
-      color: #666;
-    }
-
-    /* INFO TAMBAHAN */
-    .info-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      padding: 0 5% 60px;
-    }
-
-    .info-box {
-      flex: 1;
-      min-width: 300px;
-      background-color: white;
-      padding: 25px;
-      border-radius: 20px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-      transition: 0.3s;
-    }
-
-    .info-box:hover {
-      transform: translateY(-5px);
-    }
-
-    .info-box h3 {
-      color: #005f5f;
-      margin-bottom: 15px;
-    }
-
-    .info-box p {
-      color: #666;
-      line-height: 1.8;
-    }
-
-    /* FOOTER */
-    footer {
-      background-color: white;
-      padding: 20px 5%;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 10px;
-      font-size: 14px;
-      color: #666;
-    }
-
-      /* --- HAMBURGER MENU --- */
-      .hamburger {
-        display: none;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 8px;
-        z-index: 1001;
-      }
-
-      .hamburger span {
-        display: block;
-        width: 24px;
-        height: 2px;
-        background-color: #005f5f;
-        margin: 5px 0;
-        transition: all 0.3s ease;
-      }
-
-      .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-      }
-
-      .hamburger.active span:nth-child(2) {
-        opacity: 0;
-      }
-
-      .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
-      }
-
-      /* --- SCROLL ANIMATION --- */
-      .fade-in {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
-      }
-
-      .fade-in.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      @media (max-width: 768px) {
-        .hamburger {
-          display: block;
-        }
-
-        nav {
-          display: none;
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100vh;
-          background-color: #ffffff;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          gap: 32px;
-          z-index: 1000;
-        }
-
-        nav.active {
-          display: flex;
-        }
-
-        nav a {
-          font-size: 20px;
-        }
-      }
-  </style>
+  <title>Profil Kepengurusan & Kelembagaan RT 03 - Kabar RT</title>
+  <meta name="description" content="Profil kepengurusan RT 03, visi misi, dan struktur organisasi." />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/shared.css" />
+  <link rel="stylesheet" href="css/profil.css" />
 </head>
 
 <body>
-  <!-- HEADER -->
-  <header>
-    <!-- LOGO -->
-    <div id="logo">Kabar RT</div>
-    <button class="hamburger" aria-label="Menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+  <!-- Emergency Ticker -->
+  <div class="emergency-bar">
+    <p class="marquee-text">
+      📢 Informasi: Musyawarah Warga Rutin akan dilaksanakan pada hari Sabtu, 25 Januari 2025 pukul 19:30 WIB di Balai Warga. Mohon kehadirannya.
+    </p>
+  </div>
 
-    <!-- NAVBAR -->
-    <nav>
-      <a href="beranda.html">Beranda</a>
-      <a href="layanan_warga.html">Layanan Warga</a>
-      <a href="profil.html" class="active">Profil</a>
-      <a href="informasi.html">Informasi</a>
-      <a href="kontak.html">Kontak</a>
-    </nav>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero">
-    <!-- HERO TEXT -->
-    <div class="hero-text">
-      <span>TENTANG KAMI</span>
-      <h1>
-        Mengenal Lebih <br />
-        Dekat Lingkungan Kita
-      </h1>
-      <p>
-        RT kami hadir sebagai pusat komunikasi warga yang menjunjung tinggi
-        kebersamaan, keamanan, dan gotong royong lingkungan.
-      </p>
-    </div>
-
-    <!-- HERO IMAGE -->
-    <div class="hero-image">
-      <img src="Sekretariat.jpeg" alt="Perumahan" />
-      <!-- BADGE -->
-      <div class="badge">
-        <strong>Sekretariat</strong><br />
-        RT 03 / RW 06
-      </div>
-    </div>
-  </section>
-
-  <!-- VISI MISI -->
-  <section class="visi-misi">
-    <!-- VISI -->
-    <div class="card">
-      <h3>Visi Kami</h3>
-      <p>
-        "Mewujudkan lingkungan RT yang mandiri, harmonis, dan digital-ready
-        berbasis kekeluargaan."
-      </p>
-    </div>
-
-    <!-- MISI -->
-    <div class="card">
-      <h3>Misi Kami</h3>
-      <ul>
-        <li>Meningkatkan komunikasi antarwarga.</li>
-        <li>Mempererat silaturahmi lingkungan.</li>
-        <li>Menjaga keamanan dan ketertiban bersama.</li>
-        <li>Mendorong digitalisasi pelayanan warga.</li>
+  <!-- Navigation Header -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="beranda.html" class="logo">
+        <div class="logo-icon">
+          <span class="material-symbols-outlined">home_pin</span>
+        </div>
+        Kabar RT Portal
+      </a>
+      <button class="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="beranda.html">Beranda</a></li>
+        <li><a href="layanan_warga.html">Layanan Warga</a></li>
+        <li><a href="Profil.html" class="active">Profil</a></li>
+        <li><a href="informasi.html">Informasi</a></li>
+        <li><a href="Kontak.html">Kontak</a></li>
       </ul>
     </div>
-  </section>
+  </header>
 
-  <!-- PENGURUS -->
-  <section class="pengurus-section">
-    <h2>Struktur Kepengurusan</h2>
-    <p>Pengurus RT yang aktif menjaga kenyamanan lingkungan.</p>
-
-    <!-- CONTAINER -->
-    <div class="pengurus-container">
-      <!-- CARD -->
-      <div class="pengurus-card">
-        <img src="profil.jpg" alt="Ketua RT" />
-        <h4>Bapak Bagus</h4>
-        <small>Ketua RT</small>
+  <main>
+    <!-- Hero Header Section -->
+    <section class="profil-hero">
+      <div class="profil-hero-inner">
+        <span class="badge">Tentang Kami</span>
+        <h1>Profil Kepengurusan &amp; Kelembagaan RT 03</h1>
+        <p>Mewujudkan lingkungan yang harmonis, transparan, dan berdaya melalui digitalisasi pelayanan publik di tingkat Rukun Tetangga.</p>
       </div>
+    </section>
 
-      <!-- CARD -->
-      <div class="pengurus-card">
-        <img src="profil.jpg" alt="Wakil RT" />
-        <h4>Bapak Yusuf</h4>
-        <small>Wakil Ketua RT</small>
+    <!-- Vision & Mission Section -->
+    <section class="vm-grid">
+      <!-- Vision Card -->
+      <div class="vm-card card-lift">
+        <div class="bg-icon">
+          <span class="material-symbols-outlined">visibility</span>
+        </div>
+        <h2>
+          <span class="material-symbols-outlined">visibility</span> Visi Kami
+        </h2>
+        <div>
+          <p class="visi-title">"ASSET Digital"</p>
+          <p class="visi-desc">Aman, Sejahtera, Sinergi, Edukasi, dan Transparan berbasis Digitalisasi.</p>
+          <p class="visi-detail">Menjadi role model Rukun Tetangga yang mandiri dengan mengedepankan nilai-nilai keguyuban yang didukung oleh teknologi informasi modern untuk efisiensi birokrasi warga.</p>
+        </div>
       </div>
+      <!-- Mission Card -->
+      <div class="vm-card card-lift">
+        <h2>
+          <span class="material-symbols-outlined">rocket_launch</span> Misi Strategis
+        </h2>
+        <div class="misi-list">
+          <div class="misi-item">
+            <span class="misi-number">1</span>
+            <div>
+              <h3>Digitalisasi Administrasi</h3>
+              <p>Mempermudah pengurusan surat pengantar dan pendataan warga melalui portal Kabar RT.</p>
+            </div>
+          </div>
+          <div class="misi-item">
+            <span class="misi-number">2</span>
+            <div>
+              <h3>Peningkatan Keamanan</h3>
+              <p>Mengaktifkan sistem siskamling modern dan integrasi pelaporan darurat 24 jam.</p>
+            </div>
+          </div>
+          <div class="misi-item">
+            <span class="misi-number">3</span>
+            <div>
+              <h3>Pemberdayaan Ekonomi Lokal</h3>
+              <p>Mendukung UMKM warga melalui etalase digital dan program pelatihan berkala.</p>
+            </div>
+          </div>
+          <div class="misi-item">
+            <span class="misi-number">4</span>
+            <div>
+              <h3>Kesehatan &amp; Lingkungan</h3>
+              <p>Program pengelolaan sampah mandiri dan pemantauan kesehatan balita serta lansia.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <!-- CARD -->
-      <div class="pengurus-card">
-        <img src="profil.jpg" alt="Sekretaris" />
-        <h4>Bapak Eko</h4>
-        <small>Sekretaris</small>
+    <!-- Organizational Structure -->
+    <section class="org-section">
+      <div class="container">
+        <div class="section-center">
+          <h2>Struktur Organisasi RT 03</h2>
+          <p>Pengurus masa bakti 2025 - 2028 yang berdedikasi untuk melayani komunitas.</p>
+        </div>
+        <div class="org-grid">
+          <!-- Ketua RT -->
+          <div class="org-card card-lift">
+            <div class="org-card-img">
+              <img alt="Ketua RT" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAHZUCU1nZySFHTqI5irmsdTT0jYPue_wsPIQ6d7gOzGX9OScQTI8tjnVDV44tuRLZrPtvmHdh01kkfmHhUvOqa_EIxPQJuzIE2JVhuj20pN0nxsUFZi3B54JY5QWCPyiWvg_XPrT47aG8m614YLq5URIrX7thJH6ThklwctPRPqGj2YEKhDt49o-a0CqdKdF6RDBIPnvZjH7QDLLgWZiLTK0bGoO7BwttBxz3RsK2onm9eQkkxGl2yg06dvvQanzh-34Xej93jo8" />
+            </div>
+            <h3>Bp. H. Ahmad Fauzi</h3>
+            <p class="role primary">Ketua RT</p>
+            <div class="period">
+              <span class="material-symbols-outlined">calendar_today</span>
+              2025 - 2028
+            </div>
+          </div>
+          <!-- Wakil Ketua -->
+          <div class="org-card card-lift">
+            <div class="org-card-img ring-secondary">
+              <img alt="Wakil Ketua" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn_vZkefqDGzT8TBHX3IIoUwApke7QvlOBW0HDu6SG5axwyUKpbNXeJwatCfKhzE5Red2B5LIZ3HAMdoob1gGrxOUbB40Cj9NSBrJt81BTf5hrED3daDyj-aHZlUTXqV65RnwZpA_rzmfPgLix1zHmbWOZFAUKo5qErBUYDnEJB04FcKdv3dczC7RgRFhHeYfSRW09aPiGyMKC6dEN3MjIiGqDmDJysoDNmd46fZA-aJkWjUiUCnIGEJZO4sF2FT__2dYLg82I3KA" />
+            </div>
+            <h3>Bp. Irwan Susanto</h3>
+            <p class="role secondary">Wakil Ketua</p>
+            <div class="period">
+              <span class="material-symbols-outlined">calendar_today</span>
+              2025 - 2028
+            </div>
+          </div>
+          <!-- Sekretaris -->
+          <div class="org-card card-lift">
+            <div class="org-card-img ring-tertiary">
+              <img alt="Sekretaris" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2GIIyaoflN7uHRAcJVY2B7_zd-KRgRGGQs5DXOjEg9Sy5qyosZ8enGfgFazXqgdiBjoi-k2Jo5kRJ1VP5_RbQRkkwMUF-MoIxAmpHf3-LLeet_yJF4svgTXafKb8C4BjJdEIYHvZSB6hXH61ErqlcRv1se5N18VulP1ETmThKVJufWQz2pXLVbUmivLq7ZTRt5GTvg3byI6BBqvfNz_uYqDl-Guz68TL7kt7ywdgIfkDWCyHn2ykXO9o7zhvKY0NhAwot7ULBax0" />
+            </div>
+            <h3>Ibu Siti Aminah</h3>
+            <p class="role tertiary">Sekretaris</p>
+            <div class="period">
+              <span class="material-symbols-outlined">calendar_today</span>
+              2025 - 2028
+            </div>
+          </div>
+          <!-- Bendahara -->
+          <div class="org-card card-lift">
+            <div class="org-card-img ring-dim">
+              <img alt="Bendahara" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUWKWIPOoKXWyVVSvTvock7NvOJn7Ru9tqJZxa2Y2Arwlg964Lx4c1kitBMqzk0XhzLTw9FVpW3EmhWT2iUqIEOyzChD8eeq7dJsKq1ZnEMWY-hU7wbDRyi2ZSKPlyDa9tHWO5UU5kJaO8i2f2Mw5QsgQmhXxCemo4uV_Xg5Jo0uqpVCuw0RO049e8RpSFvj1u4_ejS_Z6cdE5v9UF9Wg3dKMg95VGajVcuh6u5oMEBssSflIkjyb8TOHEMBRPi3C6kWH3GSkErPE" />
+            </div>
+            <h3>Bp. Joko Prayitno</h3>
+            <p class="role primary">Bendahara</p>
+            <div class="period">
+              <span class="material-symbols-outlined">calendar_today</span>
+              2025 - 2028
+            </div>
+          </div>
+        </div>
+        <div class="org-cta">
+          <button class="btn-primary-solid" style="border-radius: var(--radius-full);">
+            <span class="material-symbols-outlined">diversity_3</span> Lihat Tim Lengkap
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Demographic Stats Section -->
+    <section class="stats-section">
+      <div class="stats-header">
+        <div>
+          <h2>Statistik Demografi RT 03</h2>
+          <p>Data real-time kependudukan untuk mendukung program kerja yang tepat sasaran bagi setiap kelompok usia.</p>
+        </div>
+        <div class="stats-tabs">
+          <button class="stats-tab active">Usia</button>
+          <button class="stats-tab">Pekerjaan</button>
+        </div>
+      </div>
+      <div class="stats-grid">
+        <!-- Toddlers -->
+        <div class="stat-card light">
+          <div class="bg-icon-float">
+            <span class="material-symbols-outlined">child_care</span>
+          </div>
+          <div class="stat-card-header">
+            <div class="stat-icon teal">
+              <span class="material-symbols-outlined">child_care</span>
+            </div>
+            <h3>Balita &amp; Anak</h3>
+          </div>
+          <div class="stat-value">
+            <span class="number secondary">42</span>
+            <span class="unit" style="color: var(--on-surface-variant);">Jiwa</span>
+          </div>
+          <div class="stat-bar light-track">
+            <div class="stat-bar-fill secondary" style="width: 15%;"></div>
+          </div>
+          <p class="stat-desc" style="color: var(--on-surface-variant);">Mewakili 15% dari total populasi warga RT 03.</p>
+        </div>
+        <!-- Productive Age -->
+        <div class="stat-card dark">
+          <div class="bg-icon-float">
+            <span class="material-symbols-outlined" style="color: #ffffff;">groups</span>
+          </div>
+          <div class="stat-card-header">
+            <div class="stat-icon green">
+              <span class="material-symbols-outlined">groups</span>
+            </div>
+            <h3>Usia Produktif</h3>
+          </div>
+          <div class="stat-value">
+            <span class="number primary-light">184</span>
+            <span class="unit" style="color: var(--primary-fixed-dim);">Jiwa</span>
+          </div>
+          <div class="stat-bar dark-track">
+            <div class="stat-bar-fill primary-light" style="width: 65%;"></div>
+          </div>
+          <p class="stat-desc" style="color: var(--primary-light);">Mewakili 65% dari total populasi warga RT 03.</p>
+        </div>
+        <!-- Seniors -->
+        <div class="stat-card light">
+          <div class="bg-icon-float">
+            <span class="material-symbols-outlined">elderly</span>
+          </div>
+          <div class="stat-card-header">
+            <div class="stat-icon mint">
+              <span class="material-symbols-outlined">elderly</span>
+            </div>
+            <h3>Lansia</h3>
+          </div>
+          <div class="stat-value">
+            <span class="number tertiary">58</span>
+            <span class="unit" style="color: var(--on-surface-variant);">Jiwa</span>
+          </div>
+          <div class="stat-bar light-track">
+            <div class="stat-bar-fill tertiary" style="width: 20%;"></div>
+          </div>
+          <p class="stat-desc" style="color: var(--on-surface-variant);">Mewakili 20% dari total populasi warga RT 03.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- WhatsApp FAB -->
+  <a class="fab-whatsapp" href="https://wa.me/6281234567890" target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg>
+  </a>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <span>Kabar RT Portal</span>
+        <p>Membangun komunitas digital yang lebih baik, terhubung, dan sejahtera untuk seluruh warga.</p>
+        <div class="footer-social">
+          <a href="#"><span class="material-symbols-outlined">public</span></a>
+          <a href="#"><span class="material-symbols-outlined">share</span></a>
+          <a href="#"><span class="material-symbols-outlined">mail</span></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="beranda.html">Beranda</a></li>
+          <li><a href="layanan_warga.html">Layanan Warga</a></li>
+          <li><a href="informasi.html">Informasi</a></li>
+          <li><a href="Kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan Warga</h4>
+        <ul>
+          <li><a href="layanan_warga.html">Surat Pengantar</a></li>
+          <li><a href="Kontak.html">Lapor Keamanan</a></li>
+          <li><a href="layanan_warga.html">Pendaftaran Warga Baru</a></li>
+          <li><a href="informasi.html">Agenda Lingkungan</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-newsletter">
+        <h4>Kantor RT 03</h4>
+        <p>Jl. Harmoni Raya No. 42<br>Kecamatan Kebayoran, Jakarta</p>
+        <p style="margin-top: 16px;"><strong style="color: var(--primary);">Jam Pelayanan:</strong><br>
+          <span style="font-size: 12px;">Senin - Jumat: 19:00 - 21:00<br>Sabtu: 10:00 - 15:00</span>
+        </p>
       </div>
     </div>
-  </section>
-
-  <!-- INFO TAMBAHAN -->
-  <section class="info-container">
-    <!-- BOX -->
-    <div class="info-box">
-      <h3>Keamanan Terintegrasi</h3>
-      <p>
-        Sistem keamanan lingkungan aktif selama 24 jam dengan ronda dan CCTV
-        kawasan.
-      </p>
+    <div class="container footer-bottom">
+      <p>&copy; 2024 Kabar RT Portal. Profesional, Andal, dan Guyub.</p>
+      <div class="footer-status">
+        <span class="dot"></span>
+        <span>System Operational</span>
+      </div>
     </div>
-
-    <!-- BOX -->
-    <div class="info-box">
-      <h3>Administrasi Lingkungan</h3>
-      <p>
-        Pengajuan surat dan kebutuhan administrasi warga dilakukan lebih cepat
-        dan efisien.
-      </p>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <strong>Kabar RT</strong>
-    <p>© 2026 Kabar RT. All rights reserved.</p>
   </footer>
+
   <script src="js/main.js"></script>
+  <script src="js/profil.js"></script>
 </body>
 
 </html>

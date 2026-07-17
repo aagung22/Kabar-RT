@@ -1,0 +1,555 @@
+/* ============================================
+   BERANDA — Page-Specific Styles
+   ============================================ */
+
+/* --- TOP BAR (Emergency Ticker & Countdown) --- */
+.top-bar {
+  background-color: var(--primary);
+  color: #ffffff;
+  padding: 12px 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.top-bar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.top-bar-date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.top-bar-countdown {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fbbf24;
+}
+
+.top-bar-countdown .material-symbols-outlined {
+  font-size: 18px;
+}
+
+/* --- ALERT TICKER --- */
+.alert-ticker {
+  background-color: #fef2f2;
+  border-top: 1px solid #fecaca;
+  border-bottom: 1px solid #fecaca;
+  padding: 14px 0;
+  overflow: hidden;
+}
+
+.alert-ticker-inner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.badge-urgent {
+  background-color: var(--error);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  animation: bounce 1s ease infinite;
+}
+
+.marquee-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.marquee-content {
+  display: inline-block;
+  animation: marquee 30s linear infinite;
+  color: var(--error);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* --- HERO SECTION --- */
+.hero-portal {
+  position: relative;
+  height: 500px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('../images/beranda.jpeg');
+  background-size: cover;
+  background-position: center 25%;
+  background-repeat: no-repeat;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0, 52, 43, 0.88) 0%, rgba(0, 77, 64, 0.55) 50%, transparent 100%);
+}
+
+.hero-content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: #ffffff;
+  z-index: 2;
+  padding: 0 5%;
+  max-width: 50%;
+}
+
+.hero-badge {
+  background-color: var(--tertiary-fixed);
+  color: var(--on-primary-fixed);
+  padding: 6px 18px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  max-width: 650px;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.hero-content p {
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 520px;
+  margin-bottom: 32px;
+  opacity: 0.9;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* --- SERVICE GRID --- */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.service-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  padding: 28px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.service-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-icon .material-symbols-outlined {
+  font-size: 28px;
+}
+
+.service-icon.teal { background-color: var(--secondary-container); color: var(--on-secondary-container); }
+.service-icon.green { background-color: var(--primary-light); color: var(--on-primary-fixed); }
+.service-icon.red { background-color: var(--error-container); color: var(--on-error-container); }
+.service-icon.mint { background-color: var(--tertiary-fixed); color: var(--on-primary-fixed); }
+
+.service-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--on-surface);
+}
+
+.service-card p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.service-card .card-action {
+  margin-top: auto;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+/* --- NEWS SECTION --- */
+.news-section {
+  background-color: var(--surface-container);
+  padding: 80px 0;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.news-card {
+  background-color: #ffffff;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.news-card-img {
+  height: 200px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--surface-container);
+}
+
+.news-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.news-card-img .news-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 5px 14px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.news-badge.kegiatan { background-color: var(--primary); }
+.news-badge.komunitas { background-color: var(--secondary); }
+.news-badge.fasilitas { background-color: var(--warning); }
+
+.news-card-body {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-card-body .news-date {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.news-card-body h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.news-card-body p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-card-body .read-more {
+  margin-top: auto;
+  color: var(--primary);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+}
+
+.news-card-body .read-more .material-symbols-outlined {
+  font-size: 16px;
+}
+
+/* --- AGENDA + CTA GRID --- */
+.agenda-cta-grid {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.agenda-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.agenda-header-row h2 {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.agenda-header-row button {
+  background-color: rgba(175, 239, 221, 0.3);
+  color: var(--primary);
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.agenda-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.agenda-item {
+  display: flex;
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.agenda-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.08);
+}
+
+.agenda-date-box {
+  background-color: var(--primary);
+  color: #ffffff;
+  width: 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-shrink: 0;
+  padding: 20px 0;
+}
+
+.agenda-date-box.secondary {
+  background-color: var(--secondary);
+}
+
+.agenda-date-box .day {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.agenda-date-box .month {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.agenda-detail {
+  padding: 20px;
+  flex: 1;
+}
+
+.agenda-detail-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.agenda-detail h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--on-surface);
+}
+
+.agenda-time-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 6px;
+  background-color: var(--surface-container);
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.agenda-time-badge.secondary {
+  color: var(--secondary);
+}
+
+.agenda-detail .location {
+  font-size: 14px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.agenda-detail .location .material-symbols-outlined {
+  font-size: 16px;
+}
+
+.agenda-detail .desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --- CTA BANNER (WhatsApp) --- */
+.cta-wa-card {
+  background-color: var(--primary);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.cta-wa-card .glow {
+  position: absolute;
+  top: -48px;
+  right: -48px;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  filter: blur(60px);
+}
+
+.cta-wa-card h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-wa-card p {
+  opacity: 0.8;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--whatsapp);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 16px 28px;
+  border-radius: 14px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.btn-whatsapp:hover {
+  transform: scale(1.04);
+}
+
+.btn-whatsapp .wa-icon-bg {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 4px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+}
+
+.btn-whatsapp svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+/* --- RESPONSIVE (Beranda) --- */
+@media (max-width: 1100px) {
+  .service-grid { grid-template-columns: repeat(2, 1fr); }
+  .agenda-cta-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .hero-portal { height: 420px; }
+  .hero-content { max-width: 100%; }
+  .hero-content h1 { font-size: 32px; }
+  .hero-content p { font-size: 14px; }
+  .hero-buttons { flex-direction: column; }
+  .btn-primary, .btn-outline-white { width: 100%; text-align: center; justify-content: center; }
+  .service-grid { grid-template-columns: 1fr; }
+  .news-grid { grid-template-columns: 1fr; }
+  .agenda-item { flex-direction: column; }
+  .agenda-date-box { width: 100%; flex-direction: row; gap: 8px; padding: 14px; }
+  .top-bar-inner { flex-direction: column; text-align: center; }
+  .cta-wa-card { padding: 32px 24px; }
+}
+
+@media (max-width: 480px) {
+  .agenda-date-box .day { font-size: 18px; }
+  .agenda-detail h4 { font-size: 15px; }
+  .cta-wa-card h3 { font-size: 20px; }
+  .btn-whatsapp { padding: 14px 20px; font-size: 14px; }
+}
