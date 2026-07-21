@@ -147,6 +147,9 @@ input, select, textarea {
   justify-content: space-between;
   align-items: center;
   height: 64px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
 .logo {
@@ -156,6 +159,7 @@ input, select, textarea {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-shrink: 0;
 }
 
 .logo-icon {
@@ -177,6 +181,7 @@ input, select, textarea {
   display: flex;
   gap: 36px;
   list-style: none;
+  margin-left: auto;
 }
 
 .nav-links a {
@@ -706,6 +711,7 @@ input, select, textarea {
     align-items: center;
     gap: 32px;
     z-index: 1000;
+    margin-left: 0;
   }
 
   .nav-links.active {
