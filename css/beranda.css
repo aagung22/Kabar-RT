@@ -2,87 +2,6 @@
    BERANDA — Page-Specific Styles
    ============================================ */
 
-/* --- TOP BAR (Emergency Ticker & Countdown) --- */
-.top-bar {
-  background-color: var(--primary);
-  color: #ffffff;
-  padding: 12px 0;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.top-bar-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-.top-bar-date {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.top-bar-countdown {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: #fbbf24;
-}
-
-.top-bar-countdown .material-symbols-outlined {
-  font-size: 18px;
-}
-
-/* --- ALERT TICKER --- */
-.alert-ticker {
-  background-color: #fef2f2;
-  border-top: 1px solid #fecaca;
-  border-bottom: 1px solid #fecaca;
-  padding: 14px 0;
-  overflow: hidden;
-}
-
-.alert-ticker-inner {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-.badge-urgent {
-  background-color: var(--error);
-  color: #ffffff;
-  font-size: 10px;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 4px;
-  text-transform: uppercase;
-  flex-shrink: 0;
-  animation: bounce 1s ease infinite;
-}
-
-.marquee-wrapper {
-  overflow: hidden;
-  white-space: nowrap;
-  flex: 1;
-}
-
-.marquee-content {
-  display: inline-block;
-  animation: marquee 30s linear infinite;
-  color: var(--error);
-  font-weight: 600;
-  font-size: 14px;
-}
-
 /* --- HERO SECTION --- */
 .hero-portal {
   position: relative;
@@ -521,12 +440,16 @@
   font-size: 16px;
 }
 
-/* --- AGENDA + CTA GRID --- */
-.agenda-cta-grid {
-  display: grid;
-  grid-template-columns: 7fr 5fr;
-  gap: 48px;
-  align-items: start;
+/* --- AGENDA SECTION --- */
+.agenda-section {
+  padding: 80px 0;
+}
+
+.agenda-container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 48px;
 }
 
 .agenda-header-row {
@@ -558,6 +481,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  width: 100%;
 }
 
 .agenda-item {
@@ -567,6 +491,7 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
 }
 
 .agenda-item:hover {
@@ -605,6 +530,7 @@
 .agenda-detail {
   padding: 20px;
   flex: 1;
+  width: 100%;
 }
 
 .agenda-detail-top {
@@ -612,12 +538,14 @@
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 8px;
+  gap: 12px;
 }
 
 .agenda-detail h4 {
   font-size: 18px;
   font-weight: 600;
   color: var(--on-surface);
+  flex: 1;
 }
 
 .agenda-time-badge {
@@ -650,94 +578,16 @@
 .agenda-detail .desc {
   font-size: 13px;
   color: var(--text-muted);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* --- CTA BANNER (WhatsApp) --- */
-.cta-wa-card {
-  background-color: var(--primary);
-  border-radius: var(--radius-xl);
-  padding: 40px;
-  color: #ffffff;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-}
-
-.cta-wa-card .glow {
-  position: absolute;
-  top: -48px;
-  right: -48px;
-  width: 200px;
-  height: 200px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 50%;
-  filter: blur(60px);
-}
-
-.cta-wa-card h3 {
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 16px;
-  position: relative;
-  z-index: 1;
-}
-
-.cta-wa-card p {
-  opacity: 0.8;
-  font-size: 14px;
-  line-height: 1.7;
-  margin-bottom: 32px;
-  position: relative;
-  z-index: 1;
-}
-
-.btn-whatsapp {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  background-color: var(--whatsapp);
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: 600;
-  padding: 16px 28px;
-  border-radius: 14px;
-  transition: transform 0.3s ease;
-  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
-  position: relative;
-  z-index: 1;
-}
-
-.btn-whatsapp:hover {
-  transform: scale(1.04);
-}
-
-.btn-whatsapp .wa-icon-bg {
-  background-color: rgba(255, 255, 255, 0.2);
-  padding: 4px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-}
-
-.btn-whatsapp svg {
-  width: 24px;
-  height: 24px;
-  fill: currentColor;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  line-height: 1.5;
 }
 
 /* --- RESPONSIVE --- */
 @media (max-width: 1100px) {
   .service-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-  .agenda-cta-grid {
-    grid-template-columns: 1fr;
   }
 }
 
@@ -823,6 +673,10 @@
     grid-template-columns: 1fr;
   }
 
+  .agenda-container {
+    padding: 0 20px;
+  }
+
   .agenda-item {
     flex-direction: column;
   }
@@ -834,19 +688,16 @@
     padding: 14px;
   }
 
-  .top-bar-inner {
-    flex-direction: column;
-    text-align: center;
+  .agenda-detail .desc {
+    white-space: normal;
+  }
+
+  .agenda-detail-top {
+    flex-wrap: wrap;
   }
 
   .cta-wa-card {
     padding: 32px 24px;
-  }
-
-  .top-bar-date,
-  .top-bar-countdown {
-    justify-content: center;
-    width: 100%;
   }
 
   .hero-content h1 {
@@ -886,6 +737,10 @@
   .btn-hero-outline {
     font-size: 14px;
     padding: 11px 20px;
+  }
+
+  .agenda-container {
+    padding: 0 16px;
   }
 
   .agenda-date-box .day {

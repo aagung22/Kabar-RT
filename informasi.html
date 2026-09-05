@@ -17,36 +17,8 @@
 </head>
 
 <body>
-  <!-- Top Navigation Bar -->
-  <header class="site-header">
-    <div class="container navbar">
-      <a href="index.html" class="logo">
-        <div class="logo-icon">
-          <span class="material-symbols-outlined">home_pin</span>
-        </div>
-        Kabar RT Portal
-      </a>
-      <button class="hamburger" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <ul class="nav-links">
-        <li><a href="index.html">Beranda</a></li>
-        <li><a href="layanan_warga.html">Layanan Warga</a></li>
-        <li><a href="Profil.html">Profil</a></li>
-        <li><a href="informasi.html" class="active">Informasi</a></li>
-        <li><a href="Kontak.html">Kontak</a></li>
-      </ul>
-    </div>
-  </header>
-
-  <!-- Emergency Ticker -->
-  <div class="info-ticker">
-    <div class="ticker-content">
-      <strong>INFO TERKINI:</strong> Kerja Bakti Massal Persiapan HUT RI akan dilaksanakan hari Minggu depan. Mohon partisipasi seluruh warga RT 03.
-    </div>
-  </div>
+  <!-- Navbar (loaded from layouts/) -->
+  <div id="navbar-placeholder"></div>
 
   <!-- Hero Header -->
   <section class="info-hero">
@@ -109,14 +81,13 @@
               <div class="timeline-card-top">
                 <span class="timeline-badge done">Selesai</span>
                 <span class="timeline-time">
-                  <span class="material-symbols-outlined">schedule</span> 01 Agustus 2026, 20:00
+                  <span class="material-symbols-outlined">schedule</span> 26 Juli 2026, 20:00
                 </span>
               </div>
               <h3>Rapat Rutin Bulanan &amp; Arisan</h3>
               <p>Pembahasan laporan keuangan bulanan, evaluasi keamanan lingkungan, dan perkenalan warga baru di Blok C-12.</p>
               <div class="timeline-meta">
                 <span><span class="material-symbols-outlined">location_on</span> Balai Pertemuan</span>
-                <span><span class="material-symbols-outlined">article</span> Notulensi Tersedia</span>
               </div>
             </div>
           </div>
@@ -158,7 +129,7 @@
           </div>
           <div class="weather-temp">
             <span class="temp">32°C</span>
-            <span class="location">Kab. Tangerang</span>
+            <span class="location">Kota Surabaya</span>
           </div>
           <div class="weather-details">
             <div>
@@ -200,27 +171,6 @@
             <span class="material-symbols-outlined">folder_open</span>
             Dokumen Publik
           </h3>
-          <div>
-            <a href="#" class="document-item">
-              <span class="material-symbols-outlined">picture_as_pdf</span>
-              <div class="document-info">
-                <p class="name">Struktur_Organisasi_RT.pdf</p>
-                <p class="meta">1.2 MB • Updated 2026</p>
-              </div>
-            </a>
-            <a href="#" class="document-item">
-              <span class="material-symbols-outlined">picture_as_pdf</span>
-              <div class="document-info">
-                <p class="name">Tata_Tertib_Warga.pdf</p>
-                <p class="meta">850 KB • Updated 2025</p>
-              </div>
-            </a>
-            <a href="#" class="document-item">
-              <span class="material-symbols-outlined">picture_as_pdf</span>
-              <div class="document-info">
-                <p class="name">Formulir_Data_Warga_Baru.pdf</p>
-                <p class="meta">2.1 MB • Updated 2026</p>
-              </div>
             </a>
           </div>
         </div>
@@ -240,107 +190,64 @@
         <div class="gallery-item">
           <img alt="Penyerahan Hadiah Pentas Seni" src="images/IMG_5824.jpg" />
           <div class="gallery-overlay">
-            <p class="title">Penyerahan Hadiah Pentas Seni 17 Agustus</p>
-            <p class="meta">Agustus 2025 • Area Blok A &amp; B</p>
+            <p class="title">Penyerahan Hadiah Lomba Kategori Ibu-Ibu</p>
+            <p class="meta">17 Agustus 2025 • Balai Warga</p>
           </div>
         </div>
         <!-- Photo 2 -->
         <div class="gallery-item">
-          <img alt="Buka Puasa Bersama" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRC2PPcKRMoa9QTYemEhNtSCe3n-McRAqDtCanXpKZVjquqbYsijr62mnjKoXAWAKa4m3vq3CB8Nc71iwJj7-Vf_Q2asm-SGbjDfMo4vnZFwxig-5sx9pa-fb-Y7QQdsud6wgKa4FxOQ8ypPlfyZWuylYF_37iV3S2aXSmvsScZ59e6GSpv53Ev4sSGaCnywUPonTRrP1aGpMwFBRBoWdIup7hNGjsvl9w7v5v4TBLBQDV4vmbxUOYLSXnPL2mJZmnOz1YsxM_kns" />
+          <img alt="Buka Puasa Bersama" src= "images/Futsal Bapak Bapak.webp" />
           <div class="gallery-overlay">
-            <p class="title">Buka Puasa Bersama</p>
-            <p class="meta">Ramadan 2026 • Balai Warga</p>
+            <p class="title">Tim Futsal Bapak Bapak</p>
+            <p class="meta">26 Juli 2026 • Lapangan Futsal Simo A</p>
           </div>
         </div>
         <!-- Photo 3 -->
         <div class="gallery-item">
-          <img alt="Turnamen Futsal" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-hP2DqWdvJUYRD40pcigCOY5olFUmduzuS4YQoqd1pO6sS4ydcFXEPXUPERIGl-eEMkxMtag6q6xFOPOJrxnXG0IyXMu7bBGtluL9tDkBPTTRrIQ0KwGkkeU9ljrk3ocesCcID3I_6-p41qFhm-1enA_AQUinyNkOGTgUbiY2jynFDDRHQv-PnC24_PhYtN9XPgZWXN8Ec5SeEyNF8l0EPfu6dmI8AA7vIIk1AinCJEhQYB0bhBuBJ-mHjLD58Kjq6n2igUHIni4" />
+          <img alt="Turnamen Futsal" src="images/Estafet_Tepung.webp" />
           <div class="gallery-overlay">
-            <p class="title">Turnamen Futsal Antar Blok</p>
-            <p class="meta">Mei 2026 • Lapangan Serbaguna</p>
+            <p class="title">Lomba Estafet Tepung Kategori Anak-Anak</p>
+            <p class="meta">25 Juli 2026 • Setiap Jalan Kampung</p>
           </div>
         </div>
         <!-- Photo 4 -->
         <div class="gallery-item">
-          <img alt="Pojok Baca" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIWSL6xfG3LQcR6SVrLGeTAh0_mbq44dbSHkB2iSfajETYTkN6PQjkRtBQC1ogpOJ-EkndVRIK7ZW02vXgqD1JaUf6cE9XYgoI-q4G4kh8vqzqB3eLjZVYG9pjjs8DaYz64TYwAK4ZX9d2HQQ8tN-lPbHs48dCo01_00Okz_7ZPkh3GegE5M6dcvUaUUkrnQxlcJt492JE1mGO8tTERWgR4or0uw1k4p6qt8Ag_oTUIlO2KmeptMDzTaGMq6LXc8yzDhdVJkIid-0" />
+          <img alt="Pojok Baca" src="images/Sekretariat.webp"/>
           <div class="gallery-overlay">
-            <p class="title">Peresmian Pojok Baca</p>
-            <p class="meta">Januari 2026 • Taman Blok C</p>
+            <p class="title">Peresmian Sekretariat Baru</p>
+            <p class="meta">3 Januari 2026 • Sekretariat RT 03</p>
           </div>
         </div>
         <!-- Photo 5 -->
         <div class="gallery-item">
-          <img alt="Persiapan HUT RI" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_npXNAfwTrAKcYfViOYZJ3-6UmW3Ffxl0EmpAnBxs6Hrbaox0LjuS5U_dFF_gUz6AU71lD_smKvHlcgpcHeTt1qaloFAvRFsonhxpQE13H4eHXDvKmVvQc0wGM2F-pk-STkesUtWt2wg1qscdOrX8S02WxSe6ArBYLLfVKC9VYJ1ZudwIxXzgV04cWR7qw2bbx7pw27KC23qkV8Qvn6jR92kbAs3lVnKGprghwXCcyUgY9IYPG-XpHSIOWwFy1hmkZoY-jbw1LX8" />
+          <img alt="Persiapan HUT RI" src="images/Estafet_Tepung_Ibu.webp"/>
           <div class="gallery-overlay">
-            <p class="title">Persiapan HUT RI ke-80</p>
-            <p class="meta">Agustus 2025 • Jalan Utama</p>
+            <p class="title">Lomba Estafet Tepung Kategori Ibu-Ibu</p>
+            <p class="meta">4 Agustus 2025 • Jalan Utama</p>
           </div>
         </div>
         <!-- Photo 6 -->
         <div class="gallery-item">
-          <img alt="Panorama Lingkungan" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBousFZJ5ebYR4QiaH_0pxTrLrraExnsgDgyuGnWZ6K1qwcus5I8VUCXY3KYqiiutS4jqbzH4F1bjiBm2MkClXgjD-5L4yJlfAJEhJU__MGXRc-SzL2-LpMl1TgvbkGTJL37TGuyNzQhTTlJrKKng6Ibs6zmneCIR0DiyDRAGTzPm_8wQawoV4I8Nr5pON0ys6fmekYp2BUfWKHOENEWNI4DActbav6AgOvSGJDZk9_xTquJTJGFIfTo_0u14N3V5zdrCfwvY8lLVo" />
+          <img alt="Panorama Lingkungan" src="images/Pentas_Seni.webp"/>
           <div class="gallery-overlay">
-            <p class="title">Panorama Lingkungan RT 03</p>
-            <p class="meta">Juni 2026 • Drone View</p>
+            <p class="title">Penampilan Pentas Seni</p>
+            <p class="meta"> 17 Agustus 2025 • Lapangan Serbaguna</p>
           </div>
         </div>
       </div>
-      <div class="gallery-cta">
-        <button class="btn-primary-solid" style="border-radius: var(--radius-md);">
-          <span class="material-symbols-outlined">collections</span>
-          Lihat Seluruh Galeri
-        </button>
-      </div>
+      <a href="https://drive.google.com/drive/folders/1-6jOje5YHatRndtPtw8kY7UEtKyGCh7h" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+  <div class="gallery-cta">
+    <button class="btn-primary-solid" style="border-radius: var(--radius-md);">
+      <span class="material-symbols-outlined">collections</span>
+      Lihat Seluruh Galeri
+    </button>
+  </div>
+</a>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container footer-main">
-      <div class="footer-brand">
-        <span>Kabar RT Portal</span>
-        <p>Mewujudkan lingkungan yang profesional, andal, dan menjunjung tinggi nilai keguyuban warga.</p>
-        <div class="footer-social">
-          <a href="#"><span class="material-symbols-outlined">share</span></a>
-          <a href="#"><span class="material-symbols-outlined">mail</span></a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Navigasi</h4>
-        <ul>
-          <li><a href="index.html">Beranda</a></li>
-          <li><a href="Profil.html">Tentang Kami</a></li>
-          <li><a href="informasi.html">Berita Lingkungan</a></li>
-          <li><a href="Kontak.html">Kontak</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Layanan Warga</h4>
-        <ul>
-          <li><a href="layanan_warga.html">Surat Pengantar</a></li>
-          <li><a href="Kontak.html">Lapor Pak!</a></li>
-          <li><a href="Kontak.html">Bantuan</a></li>
-          <li><a href="#">Kebijakan Privasi</a></li>
-        </ul>
-      </div>
-      <div class="footer-col footer-newsletter">
-        <h4>Kontak Pengurus</h4>
-        <p>Sekretariat RT 03/05<br>Perumahan Elit Lestari, Blok A-1<br>Tangerang, Banten</p>
-        <p style="margin-top: 12px;">
-          <a href="https://wa.me/6281234567890" style="color: var(--whatsapp); font-weight: 700; display: flex; align-items: center; gap: 8px;">
-            <span class="material-symbols-outlined">forum</span> WhatsApp Pengurus
-          </a>
-        </p>
-      </div>
-    </div>
-    <div class="container footer-bottom">
-      <p>&copy; 2024 Kabar RT Portal. Profesional, Andal, dan Guyub.</p>
-      <div class="footer-status">
-        <span class="dot"></span>
-        <span>System Operational</span>
-      </div>
-    </div>
-  </footer>
+  <!-- Footer (loaded from layouts/) -->
+  <div id="footer-placeholder"></div>
 
   <!-- WhatsApp FAB -->
   <a class="fab-whatsapp" href="https://wa.me/6281234567890" target="_blank" aria-label="WhatsApp">

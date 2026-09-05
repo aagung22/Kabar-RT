@@ -1,57 +1,4 @@
-// ===== TANGGAL HARI INI =====
-function updateCurrentDate() {
-  const now = new Date();
-  const hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-  const bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
-    'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
 
-  const namaHari = hari[now.getDay()];
-  const tgl = now.getDate();
-  const namaBulan = bulan[now.getMonth()];
-  const tahun = now.getFullYear();
-
-  const el = document.getElementById('current-date');
-  if (el) {
-    el.textContent = `${namaHari}, ${tgl} ${namaBulan} ${tahun}`;
-  }
-}
-
-updateCurrentDate();
-setInterval(updateCurrentDate, 60000); // update tiap 1 menit
-
-// ===== COUNTDOWN TIMER KE 17 AGUSTUS =====
-function updateCountdown() {
-  const now = new Date();
-  // Target: 17 Agustus tahun ini atau tahun depan
-  let targetYear = now.getFullYear();
-  let target = new Date(targetYear, 7, 17); // Agustus = index 7
-  if (now > target) {
-    targetYear += 1;
-    target = new Date(targetYear, 7, 17);
-  }
-
-  const keN = targetYear - 1945; // Kemerdekaan RI ke-N
-  const diff = target - now;
-
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  const secs = Math.floor((diff % (1000 * 60)) / 1000);
-
-  const pad = (n) => String(n).padStart(2, '0');
-
-  const el = document.getElementById('countdown-text');
-  if (el) {
-    if (diff <= 0) {
-      el.textContent = `🇮🇩 Selamat Hari Kemerdekaan RI ke-${keN}! 🇮🇩`;
-    } else {
-      el.textContent = `Countdown Hari Kemerdekaan RI ke-${keN}: ${days} Hari ${pad(hours)}:${pad(mins)}:${pad(secs)}`;
-    }
-  }
-}
-
-updateCountdown();
-setInterval(updateCountdown, 1000);
 
 // ===== COUNTER ANIMATION (CTA STATS) =====
 function animateCounter(el, target, suffix) {
@@ -164,26 +111,8 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// ===== HAMBURGER MENU TOGGLE =====
-document.addEventListener('DOMContentLoaded', function() {
-  const hamburger = document.querySelector('.hamburger');
-  const navLinks = document.querySelector('.nav-links');
-  
-  if (hamburger && navLinks) {
-    hamburger.addEventListener('click', function() {
-      this.classList.toggle('active');
-      navLinks.classList.toggle('active');
-    });
-    
-    // Tutup menu saat klik link
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-      });
-    });
-  }
-});
+
+
 
 // ===== SMOOTH SCROLL =====
 document.addEventListener('DOMContentLoaded', function() {
