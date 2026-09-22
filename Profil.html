@@ -12,8 +12,50 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/shared.css" />
-  <link rel="stylesheet" href="css/profil.css" />
+  <link rel="stylesheet" href="css/shared.css?v=1.1" />
+  <link rel="stylesheet" href="css/profil.css?v=1.1" />
+  <style>
+    .page-loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      z-index: 999999;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .page-loader.loaded {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .loader-spinner {
+      width: 38px;
+      height: 38px;
+      border: 3.5px solid #e2e8f0;
+      border-top-color: #004d40;
+      border-radius: 50%;
+      animation: pageSpin 0.75s linear infinite;
+    }
+    .loader-text {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #64748b;
+      margin: 0;
+    }
+    @keyframes pageSpin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
 </head>
 
 <body>
@@ -346,8 +388,8 @@
   <!-- Footer (loaded from layouts/) -->
   <div id="footer-placeholder"></div>
 
-  <script src="js/main.js"></script>
-  <script src="js/profil.js"></script>
+  <script src="js/main.js?v=1.1"></script>
+  <script src="js/profil.js?v=1.1"></script>
 </body>
 
 </html>
