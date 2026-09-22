@@ -125,6 +125,31 @@ function initHamburgerMenu() {
 // Initialize layout loading on DOM ready
 document.addEventListener('DOMContentLoaded', loadLayout);
 
+// ===== PAGE LOADER =====
+function hidePageLoader() {
+  const loader = document.getElementById('page-loader');
+  if (loader && !loader.classList.contains('loaded')) {
+    loader.classList.add('loaded');
+    setTimeout(() => {
+      if (loader.parentNode) {
+        loader.style.display = 'none';
+      }
+    }, 350);
+  }
+}
+
+// Ensure loader is hidden when window is fully loaded
+window.addEventListener('load', () => {
+  setTimeout(hidePageLoader, 150);
+});
+
+// Safety fallback if page load event already fired or resources take too long
+if (document.readyState === 'complete') {
+  setTimeout(hidePageLoader, 150);
+} else {
+  setTimeout(hidePageLoader, 2000);
+}
+
 // ===== SCROLL ANIMATION =====
 document.querySelectorAll('section:not(.hero):not(.hero-portal)').forEach(s => {
   s.classList.add('fade-in');
@@ -137,3 +162,4 @@ const scrollObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 
 document.querySelectorAll('.fade-in').forEach(el => scrollObs.observe(el));
+
