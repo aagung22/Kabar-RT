@@ -453,83 +453,122 @@ input, select, textarea {
   background-color: #ffffff;
   border-top: 1px solid var(--border);
   margin-top: auto;
+  position: relative;
+  width: 100%;
 }
 
 .footer-main {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+  grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
   gap: 40px;
-  padding: 60px 0 50px;
+  padding: 60px 0 44px;
 }
 
-.footer-brand span {
-  font-size: 20px;
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-brand-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.footer-logo-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.footer-brand-title span {
+  font-size: 19px;
   font-weight: 700;
   color: var(--primary);
-  display: block;
-  margin-bottom: 16px;
+  letter-spacing: -0.2px;
+  display: inline-block;
 }
 
 .footer-brand p {
   font-size: 14px;
   color: var(--text-muted);
-  line-height: 1.7;
+  line-height: 1.65;
   margin-bottom: 20px;
-  max-width: 320px;
+  max-width: 340px;
 }
 
 .footer-social {
   display: flex;
-  gap: 12px;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .footer-social a {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   background-color: var(--surface-container);
+  border: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--primary);
-  transition: all 0.3s ease;
+  text-decoration: none;
+  transition: all 0.25s ease;
 }
 
 .footer-social a:hover {
   background-color: var(--primary);
+  border-color: var(--primary);
   color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 77, 64, 0.2);
 }
 
 .footer-social a .material-symbols-outlined {
-  font-size: 20px;
+  font-size: 19px;
 }
 
 .footer-col h4 {
   font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.2px;
   color: var(--on-surface);
-  margin-bottom: 20px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
 }
 
 .footer-col ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .footer-col ul li {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
+}
+
+.footer-col ul li:last-child {
+  margin-bottom: 0;
 }
 
 .footer-col ul li a {
   font-size: 14px;
   color: var(--text-muted);
-  transition: color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  padding: 2px 0;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .footer-col ul li a:hover {
   color: var(--primary);
+  transform: translateX(4px);
 }
 
 .footer-newsletter p {
@@ -542,21 +581,26 @@ input, select, textarea {
 .footer-newsletter .input-group {
   display: flex;
   gap: 8px;
+  width: 100%;
+  max-width: 100%;
 }
 
 .footer-newsletter input {
-  flex: 1;
-  padding: 12px 16px;
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 11px 14px;
   border: 1px solid var(--border);
   border-radius: 10px;
   font-size: 14px;
   font-family: inherit;
   outline: none;
   background-color: #f8fafc;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  color: var(--on-surface);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
 }
 
 .footer-newsletter input:focus {
+  background-color: #ffffff;
   border-color: var(--primary);
   box-shadow: 0 0 0 3px rgba(0, 77, 64, 0.12);
 }
@@ -569,41 +613,54 @@ input, select, textarea {
   background-color: var(--primary);
   color: #ffffff;
   border: none;
-  padding: 12px 18px;
+  padding: 0 16px;
+  height: 44px;
   border-radius: 10px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.25s ease, transform 0.2s ease;
   flex-shrink: 0;
 }
 
 .footer-newsletter button:hover {
   background-color: #006b5a;
-  transform: scale(1.02);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 77, 64, 0.2);
 }
 
 .footer-newsletter button .material-symbols-outlined {
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .footer-bottom {
   border-top: 1px solid #eef2f6;
-  padding: 20px 0;
+  padding: 22px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 12px;
-  font-size: 14px;
+  gap: 16px;
+  font-size: 13.5px;
   color: var(--text-muted);
 }
 
+.footer-bottom p {
+  margin: 0;
+}
+
 .footer-status {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
+  background-color: #f8fafc;
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--on-surface-variant);
 }
 
 .footer-status .dot {
@@ -611,12 +668,13 @@ input, select, textarea {
   height: 8px;
   background-color: var(--success);
   border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
   animation: pulse-dot 2s ease infinite;
 }
 
 @keyframes pulse-dot {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.9); }
 }
 
 /* ============================================
@@ -774,8 +832,20 @@ input, select, textarea {
 }
 
 /* ============================================
-   RESPONSIVE — Mobile
+   RESPONSIVE — Shared Breakpoints
    ============================================ */
+@media (max-width: 1024px) {
+  .footer-main {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px 40px;
+    padding: 48px 0 36px;
+  }
+
+  .footer-brand p {
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 768px) {
   .hamburger {
     display: block;
@@ -809,20 +879,109 @@ input, select, textarea {
     font-size: 20px;
   }
 
+  /* Footer Mobile Structure */
   .footer-main {
-    grid-template-columns: 1fr;
-    gap: 36px;
-    padding: 40px 0 30px;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 20px;
+    padding: 36px 0 24px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 22px;
+  }
+
+  .footer-brand-title {
+    margin-bottom: 10px;
+  }
+
+  .footer-brand-title span {
+    font-size: 18px;
   }
 
   .footer-brand p {
+    font-size: 13.5px;
+    line-height: 1.6;
     max-width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .footer-social {
+    gap: 10px;
+  }
+
+  .footer-social a {
+    width: 38px;
+    height: 38px;
+  }
+
+  .footer-col {
+    margin-bottom: 0;
+  }
+
+  .footer-col h4 {
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    color: var(--on-surface);
+  }
+
+  .footer-col ul li {
+    margin-bottom: 8px;
+  }
+
+  .footer-col ul li a {
+    font-size: 13.5px;
+    padding: 3px 0;
+  }
+
+  .footer-newsletter {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--border);
+    padding-top: 22px;
+    margin-top: 2px;
+  }
+
+  .footer-newsletter p {
+    font-size: 13.5px;
+    margin-bottom: 12px;
+  }
+
+  .footer-newsletter .input-group {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .footer-newsletter input {
+    font-size: 13.5px;
+    padding: 10px 14px;
+  }
+
+  .footer-newsletter button {
+    height: 42px;
+    padding: 0 16px;
   }
 
   .footer-bottom {
     flex-direction: column;
+    align-items: center;
     text-align: center;
-    padding: 16px 0;
+    gap: 12px;
+    padding: 18px 0;
+  }
+
+  .footer-bottom p {
+    font-size: 12.5px;
+    order: 2;
+    margin: 0;
+  }
+
+  .footer-status {
+    order: 1;
+    font-size: 12px;
+    padding: 5px 12px;
   }
 
   .section-header {
@@ -846,24 +1005,27 @@ input, select, textarea {
   }
 }
 
-@media (max-width: 1100px) {
-  .footer-main {
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-  }
-}
-
 @media (max-width: 480px) {
   .container {
     padding: 0 16px;
   }
 
-  .footer-newsletter .input-group {
-    flex-direction: column;
+  .footer-main {
+    gap: 20px 16px;
+    padding: 30px 0 20px;
   }
 
-  .footer-newsletter button {
-    padding: 12px;
+  .footer-col h4 {
+    font-size: 11.5px;
+  }
+
+  .footer-col ul li a {
+    font-size: 13px;
+  }
+
+  .footer-newsletter input {
+    font-size: 13px;
+    padding: 10px 12px;
   }
 }
 
