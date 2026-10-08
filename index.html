@@ -5,15 +5,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kabar RT Portal - Profesional, Andal, dan Guyub</title>
-  <meta name="description" content="Portal resmi warga RT 03 / RW 010. Sistem informasi komunitas yang terintegrasi untuk mewujudkan lingkungan yang aman, nyaman, dan transparan." />
+  <meta name="description"
+    content="Portal resmi warga RT 03 / RW 010. Sistem informasi komunitas yang terintegrasi untuk mewujudkan lingkungan yang aman, nyaman, dan transparan." />
   <!-- Google Fonts: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
   <!-- Material Symbols Outlined -->
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/shared.css?v=1.1" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/beranda.css?v=1.1" />
   <style>
     .page-loader {
@@ -33,11 +37,13 @@
       visibility: visible;
       transition: opacity 0.3s ease, visibility 0.3s ease;
     }
+
     .page-loader.loaded {
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
     }
+
     .loader-spinner {
       width: 38px;
       height: 38px;
@@ -46,6 +52,7 @@
       border-radius: 50%;
       animation: pageSpin 0.75s linear infinite;
     }
+
     .loader-text {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 0.875rem;
@@ -53,8 +60,11 @@
       color: #64748b;
       margin: 0;
     }
+
     @keyframes pageSpin {
-      to { transform: rotate(360deg); }
+      to {
+        transform: rotate(360deg);
+      }
     }
   </style>
 </head>
@@ -76,18 +86,25 @@
       <div class="hero-overlay"></div>
       <div class="container hero-content">
         <div class="hero-text-wrapper">
-          <span class="hero-badge"><span class="material-symbols-outlined" style="font-size:16px;font-variation-settings:'FILL' 1;">groups</span> Bersama • Peduli • Maju</span>
+          <span class="hero-badge"><span class="material-symbols-outlined"
+              style="font-size:16px;font-variation-settings:'FILL' 1;">groups</span> Bersama • Peduli • Maju</span>
           <h1>
             <span class="greeting-text">Selamat Datang di</span>
-            <span class="hero-title-main">Kabar <span class="highlight-rt">RT</span> <span class="highlight-number">03</span></span>
+            <span class="hero-title-main">Kabar <span class="highlight-rt">RT</span> <span
+                class="highlight-number">03</span></span>
             <span class="typing-wrapper">
               <span class="typing-text" id="typing-text"></span>
             </span>
           </h1>
-          <p class="hero-description">Portal Informasi Resmi Warga<br><strong>RT 03</strong> untuk lingkungan yang<br>aman, nyaman, dan guyub.</p>
+          <p class="hero-description">Portal Informasi Resmi Warga<br><strong>RT 03</strong> untuk lingkungan
+            yang<br>aman, nyaman, dan guyub.</p>
           <div class="hero-buttons">
-            <a href="informasi.html" class="btn-hero-primary"><span class="material-symbols-outlined" style="font-size:18px;font-variation-settings:'FILL' 1;">newspaper</span> Lihat Berita <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span></a>
-            <a href="layanan_warga.html" class="btn-hero-outline"><span class="material-symbols-outlined" style="font-size:18px;font-variation-settings:'FILL' 1;">groups</span> Layanan RT <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span></a>
+            <a href="informasi.html" class="btn-hero-primary"><span class="material-symbols-outlined"
+                style="font-size:18px;font-variation-settings:'FILL' 1;">newspaper</span> Lihat Berita <span
+                class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span></a>
+            <a href="layanan_warga.html" class="btn-hero-outline"><span class="material-symbols-outlined"
+                style="font-size:18px;font-variation-settings:'FILL' 1;">groups</span> Layanan RT <span
+                class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span></a>
           </div>
         </div>
       </div>
@@ -101,7 +118,8 @@
             <h2>Layanan Mandiri Warga</h2>
             <p>Akses cepat kebutuhan administratif Anda tanpa perlu keluar rumah.</p>
           </div>
-          <a href="layanan_warga.html">Semua Layanan <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span></a>
+          <a href="layanan_warga.html">Semua Layanan <span class="material-symbols-outlined"
+              style="font-size:18px;">arrow_forward</span></a>
         </div>
         <div class="service-grid">
           <!-- Service Card 1 -->
@@ -161,8 +179,10 @@
             <div class="news-card-body">
               <span class="news-date">12 Agu 2024</span>
               <h3>Persiapan Rapat HUT RI ke-79 Berjalan Khidmat</h3>
-              <p>Warga RT 03 telah menyelesaikan rapat perdana pembentukan panitia lomba 17-an dengan antusiasme yang luar biasa...</p>
-              <a href="#" class="read-more">Baca Selengkapnya <span class="material-symbols-outlined">open_in_new</span></a>
+              <p>Warga RT 03 telah menyelesaikan rapat perdana pembentukan panitia lomba 17-an dengan antusiasme yang
+                luar biasa...</p>
+              <a href="#" class="read-more">Baca Selengkapnya <span
+                  class="material-symbols-outlined">open_in_new</span></a>
             </div>
           </article>
           <!-- News Card 2 -->
@@ -174,8 +194,10 @@
             <div class="news-card-body">
               <span class="news-date">10 Agu 2024</span>
               <h3>Keseruan Lomba Ibu-Ibu PKK Menyambut Agustus</h3>
-              <p>Lomba memasak antar gang di RT 03 menghadirkan berbagai menu nusantara yang menggugah selera warga sekitar...</p>
-              <a href="#" class="read-more">Baca Selengkapnya <span class="material-symbols-outlined">open_in_new</span></a>
+              <p>Lomba memasak antar gang di RT 03 menghadirkan berbagai menu nusantara yang menggugah selera warga
+                sekitar...</p>
+              <a href="#" class="read-more">Baca Selengkapnya <span
+                  class="material-symbols-outlined">open_in_new</span></a>
             </div>
           </article>
           <!-- News Card 3 -->
@@ -187,8 +209,10 @@
             <div class="news-card-body">
               <span class="news-date">08 Agu 2024</span>
               <h3>Renovasi Pos Kamling Selesai, Keamanan Ditingkatkan</h3>
-              <p>Guna meningkatkan kenyamanan petugas ronda, warga bergotong royong mengecat dan memperbaiki atap Pos Kamling Utama...</p>
-              <a href="#" class="read-more">Baca Selengkapnya <span class="material-symbols-outlined">open_in_new</span></a>
+              <p>Guna meningkatkan kenyamanan petugas ronda, warga bergotong royong mengecat dan memperbaiki atap Pos
+                Kamling Utama...</p>
+              <a href="#" class="read-more">Baca Selengkapnya <span
+                  class="material-symbols-outlined">open_in_new</span></a>
             </div>
           </article>
         </div>
@@ -236,7 +260,8 @@
                 <p class="location">
                   <span class="material-symbols-outlined">location_on</span> Pos Kamling RT 03
                 </p>
-                <p class="desc">Lomba mengenakan baju bertumpuk-tumpuk (ribet) dengan berbagai aksesoris seperti kancing, dasi, dan ikat pinggang.</p>
+                <p class="desc">Lomba mengenakan baju bertumpuk-tumpuk (ribet) dengan berbagai aksesoris seperti
+                  kancing, dasi, dan ikat pinggang.</p>
               </div>
             </div>
           </div>
@@ -250,7 +275,11 @@
 
   <!-- FAB WhatsApp Mobile -->
   <a class="fab-whatsapp" href="https://wa.me/6281234567890" target="_blank" aria-label="WhatsApp">
-    <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.539 2.016 2.126-.54c1.079.59 1.987.828 3.16.828 3.182 0 5.767-2.587 5.768-5.766 0-3.18-2.586-5.766-5.766-5.791zm3.533 8.041c-.149.42-.871.761-1.2.783-.306.024-.611.024-.951-.036-.231-.041-.497-.091-1.01-.264-2.18-.737-3.593-2.91-3.693-3.04-.1-.132-.821-1.077-.821-2.062 0-.986.517-1.472.702-1.669.184-.197.402-.247.535-.247.133 0 .267.001.383.007.124.006.29-.047.453.336.166.388.567 1.36.616 1.458.05.099.083.214.017.343-.066.133-.1.214-.199.329-.099.115-.209.256-.299.345-.1.099-.204.206-.087.402.115.197.514.839 1.103 1.353.76.662 1.398.868 1.596.966.197.099.313.082.429-.05.115-.132.497-.576.63-.772.132-.197.265-.164.447-.099.182.066 1.144.535 1.343.633.199.099.331.148.38.23.049.082.049.477-.1.897z"></path></svg>
+    <svg viewBox="0 0 24 24">
+      <path
+        d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.539 2.016 2.126-.54c1.079.59 1.987.828 3.16.828 3.182 0 5.767-2.587 5.768-5.766 0-3.18-2.586-5.766-5.766-5.791zm3.533 8.041c-.149.42-.871.761-1.2.783-.306.024-.611.024-.951-.036-.231-.041-.497-.091-1.01-.264-2.18-.737-3.593-2.91-3.693-3.04-.1-.132-.821-1.077-.821-2.062 0-.986.517-1.472.702-1.669.184-.197.402-.247.535-.247.133 0 .267.001.383.007.124.006.29-.047.453.336.166.388.567 1.36.616 1.458.05.099.083.214.017.343-.066.133-.1.214-.199.329-.099.115-.209.256-.299.345-.1.099-.204.206-.087.402.115.197.514.839 1.103 1.353.76.662 1.398.868 1.596.966.197.099.313.082.429-.05.115-.132.497-.576.63-.772.132-.197.265-.164.447-.099.182.066 1.144.535 1.343.633.199.099.331.148.38.23.049.082.049.477-.1.897z">
+      </path>
+    </svg>
   </a>
 
   <script src="js/main.js?v=1.1"></script>
